@@ -32,12 +32,29 @@ const loginUser = async (req,res) => {
         })
     }
     try {
-        const user = await Users.login(email,password)
-        const token = createToken(user.id)
-        res.status(200).json({
-            succes : true,
-            email , token
+        const user = await Users.findOne({where : {email : email}})
+        if (!user) {
+            return res.status(408).json({
+                success : false,
+                message : "the email given is not recogonised"
+            })
+        }
+        const dbPassword = user.password;
+        bcrypt.compare(password,dbPassword).then((match) => {
+            if (!match) {
+                return res.status(409).json({
+                    success : false,
+                    message : "the pasword given dosent match the passowrd"
+                })
+            }else{
+                const token = createToken(user.id)
+                res.status(200).json({
+                    succes : true,
+                    email , token
+                })
+            }
         })
+        
     } catch (error) {
         res.status(400).json({error:error.message})
     }
