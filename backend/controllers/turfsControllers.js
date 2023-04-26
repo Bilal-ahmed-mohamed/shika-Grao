@@ -27,9 +27,23 @@ const getAllTurfs = async (req,res) =>{
 
 const createTurfs = async (req,res) => {
 
-    const {title ,format , surface , postcode , numberOfPitches} = req.body;
+    const result = await cloudinary.uploader.upload(req.file.path);
 
-    if (!title  || !format || !surface || !postcode || !numberOfPitches ) {
+ let newTurf = {
+    title : req.body.title,
+    price : req.body.price,
+    surface : req.body.surface,
+    postcode : req.body.postcode,
+    numberOfPitches : req.body.numberOfPitches,
+    image : result.secure_url,
+    cloudinary_id : result.public_id
+
+ }
+ 
+
+    
+
+    if (!newTurf ) {
         return res.status(400).json({
             success : false,
             message : "All fields must be required",
@@ -37,10 +51,10 @@ const createTurfs = async (req,res) => {
     }
     try {
        
-        const newTurf = await Turfs.create({title,format,surface,postcode,numberOfPitches} );
+        const Turf = await Turfs.create(newTurf);
         res.status(200).json({
             success : true,
-            newTurf,
+            Turf,
         })
     } catch (error) {
         res.status(500).json({

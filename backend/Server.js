@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 const express = require("express");
 const database = require("./config/config");
 const turfRoutes = require("./routes/turfs");

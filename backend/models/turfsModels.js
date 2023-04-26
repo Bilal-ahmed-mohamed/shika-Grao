@@ -1,6 +1,6 @@
 const db = require("../config/config")
 
-const {DataTypes} = require("sequelize");
+const {DataTypes, STRING} = require("sequelize");
 
 const Turfs = db.define('turfs', {
     title:{
@@ -23,6 +23,14 @@ const Turfs = db.define('turfs', {
         type:DataTypes.DOUBLE,
         allowNull : false
     },
+    Image:{
+        type:DataTypes>STRING,
+        allowNull: false
+    },
+    cloudinary_id:{
+        type:DataTypes.STRING,
+        allowNull : false
+    }
     
 
 } ,
