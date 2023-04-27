@@ -8,8 +8,10 @@ const {
     uploadImage,
 
 } = require("../controllers/turfsControllers");
+const UploadImageTurf = require("../config/multer");
 
 const router = express.Router();
+
 
 // get all turf 
 
@@ -21,7 +23,7 @@ router.get('/:id' , getAsingleTurf)
 
 // posting a new turf 
 
-router.post('/' , createTurfs, uploadImage);
+router.post('/' , UploadImageTurf , createTurfs,);
 
 // delete a turf
 

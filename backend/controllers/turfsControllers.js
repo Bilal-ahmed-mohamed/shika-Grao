@@ -1,6 +1,13 @@
 const Turfs = require("../models/turfsModels")
-const cloudinary = require("../config/cloudinary")
+const cloudinary = require("cloudinary")
 
+
+cloudinary.config({
+    cloud_name : "dxdiozidt",
+    api_key: "315532219354147",
+    api_secret : "TnmzQ0jEgFdAz29xBf2IsQGL_ww"
+   });
+   
 
 // get all turfs
 
@@ -27,19 +34,21 @@ const getAllTurfs = async (req,res) =>{
 
 const createTurfs = async (req,res) => {
 
-    const result = await cloudinary.uploader.upload(req.file.path);
+    
+
+    const result = await cloudinary.uploader.upload(req.file.path, {folder : "Turfs"});
 
  let newTurf = {
     title : req.body.title,
-    price : req.body.price,
+    format : req.body.format,
     surface : req.body.surface,
     postcode : req.body.postcode,
     numberOfPitches : req.body.numberOfPitches,
     image : result.secure_url,
-    cloudinary_id : result.public_id
 
  }
- 
+  
+   
 
     
 
@@ -48,6 +57,8 @@ const createTurfs = async (req,res) => {
             success : false,
             message : "All fields must be required",
         });
+    }else{
+        console.log(newTurf);
     }
     try {
        

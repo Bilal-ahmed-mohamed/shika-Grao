@@ -24,7 +24,7 @@ const Turfs = db.define('turfs', {
         allowNull : false
     },
     Image:{
-        type:DataTypes>STRING,
+        type:DataTypes.STRING,
         allowNull: false
     },
     cloudinary_id:{

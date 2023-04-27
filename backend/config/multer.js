@@ -1,7 +1,7 @@
 const multer = require("multer")
 const path = require("path")
 
-module.exports = multer({
+const UploadImageTurf = multer({
     storage : multer.diskStorage({}),
     fileFilter : (req,file,cb) => {
         let ext  = path.extname(file.originalname)
@@ -13,4 +13,6 @@ module.exports = multer({
 
     },
 
-});
+}).single("image")
+
+module.exports= UploadImageTurf;

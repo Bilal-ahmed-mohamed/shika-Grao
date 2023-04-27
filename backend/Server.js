@@ -3,6 +3,7 @@ const express = require("express");
 const database = require("./config/config");
 const turfRoutes = require("./routes/turfs");
 const usersRoutes =  require("./routes/users");
+const cors = require("cors");
 
 const app = express();
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 4000;
 
 
 app.use(express.json());
+app.use(cors());
 
 // routes 
 app.use('/api/Turfs' , turfRoutes)
