@@ -15,6 +15,9 @@ export default {
       colors:{
         grey : 'rgb(219, 223, 234)',
         lightGreen : 'hsl(116, 89%, 35%)'
+      },
+      backgroundImage:{
+         'hero-image': "url('/images/hero-image.jpg')"
       }
     },
   },
