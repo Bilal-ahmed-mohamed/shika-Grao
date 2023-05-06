@@ -4,12 +4,12 @@ import {BiFootball} from 'react-icons/bi';
 const Navbar = () => {
   return (
     <nav className='w-full bg-white py-2' >
-      <span className='navBar bg-grey mx-auto py-2  max-w-7xl flex justify-evenly  ' >
+      <span className='navBar bg-grey mx-auto py-2  max-w-7xl flex justify-evenly' >
       <div className="logo w-40 float-left  bg-grey flex items-center ">
         <h1 className='' >shikaGrao   </h1>
         <span > <BiFootball size='2em' color='green' /> </span>
       </div>
-      <div className=" hidden w-96  space-x-3  md:flex justify-around items-center ">
+      <div className=" hidden w-96  space-x-3  md:flex justify-around items-center">
         <Link to='/' >Home</Link>
         <Link to='/Turfs' > Turfs </Link>
         <Link to='/Host' > Host A New Turf </Link>      
