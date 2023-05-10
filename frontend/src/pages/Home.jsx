@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom';
 import image3 from '../images/hero2.jpg';
 import { FcSearch , FcCalendar} from "react-icons/fc";
@@ -7,6 +7,17 @@ import { GiBabyfootPlayers } from "react-icons/gi";
 
 
 const Home = () => {
+  const [data , setData] = useState([]);
+
+  useEffect(() => {
+    const fetchedTurfs = async () => {
+      const response = await fetch('http://localhost:4000/api/Turfs');
+      const json = await response.json();
+      setData(json());
+    };
+
+    fetchedTurfs();
+  })
   return (
     <body className=' bg-white ' >
       
@@ -33,15 +44,23 @@ const Home = () => {
     <section className='w-full h-fit ' >
       <h1 className=' text-center text-5xl py-5 ' >Find Your Turfs</h1>
      <div className='  space-y-4 bg-grey lg:max-w-7xl lg:mx-auto lg:h-96 lg:space-y-0 lg:flex lg:row-auto lg:items-center lg:justify-between ' >
-     <div className=' w-11/12 mx-auto   lg:w-72 h-80 lg:mx-0 bg-amber-700' >
-      <h1>turf 1</h1>
-     </div>
-     <div className='w-11/12 mx-auto lg:w-72 h-80 bg-lightGreen lg:mx-0'>
-      <h1>turf 2</h1>
-     </div>
-     <div className='w-11/12 mx-auto lg:w-72 h-80  bg-black lg:mx-0 '>
-      <h1>turf 3</h1>
-     </div>
+
+      {
+        data && data.map((fetchedData) => {
+
+          <div key={fetchedData.id} className=' w-11/12 mx-auto   lg:w-72 h-80 lg:mx-0 bg-amber-700' >
+           <img src="" alt="" />
+           <h1>{fetchedData.title}</h1>
+           <p>{fetchedData.format}</p>
+           <p>{fetchedData.surface}</p>
+           <p>{fetchedData.postcode}</p>y
+           <p>{fetchedData.numberOfPitches}</p>
+          </div>
+        })
+      }
+     
+     
+     
      </div>
     </section>
 

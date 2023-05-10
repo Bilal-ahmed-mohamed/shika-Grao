@@ -9,6 +9,7 @@ import Form from './Form.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    <Form/>
   
   </React.StrictMode>,
 )

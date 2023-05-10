@@ -10,7 +10,6 @@ cloudinary.config({
    
 
 // get all turfs
-
 const getAllTurfs = async (req,res) =>{
     try {
         const turfs = await Turfs.findAll();
@@ -24,19 +23,14 @@ const getAllTurfs = async (req,res) =>{
             message : "No any data there",
         })
     }
-   
-
     console.log("All Turfs :" , JSON.stringify(getAllTurfs, null));
 }
 
 
 // create new turfs
-
 const createTurfs = async (req,res) => {
 
-    
-
-    const result = await cloudinary.uploader.upload(req.file.path, {folder : "Turfs"});
+  const result = await cloudinary.uploader.upload(req.file.path, {folder :"Turfs"});
 
  let newTurf = {
     title : req.body.title,
@@ -44,13 +38,9 @@ const createTurfs = async (req,res) => {
     surface : req.body.surface,
     postcode : req.body.postcode,
     numberOfPitches : req.body.numberOfPitches,
-    image : result.secure_url,
+    Image : result.secure_url
 
  }
-  
-   
-
-    
 
     if (!newTurf ) {
         return res.status(400).json({
@@ -58,21 +48,22 @@ const createTurfs = async (req,res) => {
             message : "All fields must be required",
         });
     }else{
+        try {
+       
+            const Turf = await Turfs.create(newTurf);
+            res.status(200).json({
+                success : true,
+                Turf,
+            })
+        } catch (error) {
+            res.status(500).json({
+                success : false,
+                message : "All fields must be requird",
+            })
+        }
         console.log(newTurf);
     }
-    try {
-       
-        const Turf = await Turfs.create(newTurf);
-        res.status(200).json({
-            success : true,
-            Turf,
-        })
-    } catch (error) {
-        res.status(500).json({
-            success : false,
-            message : "All fields must be requird",
-        })
-    }
+    
     
     
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import axios from 'axios';
 
 const Form = () => {
  
@@ -10,34 +11,30 @@ const Form = () => {
       const [postcode , setPostcode] = useState("")
       const [numberOfPitches , setNumberOfpitches] =  useState("");
       const [image,setImage] = useState("");
+      const [error , setError] = useState("");
      
-      const handleSubmit = async (e) => {
+      const turfUpload = async (e) => {
     
         e.preventDefault();
     
         try {
     
-          const  formData = new FormData();
+          const  formdata = new FormData();
     
-          formData.append("title", title);
-          formData.append("format",format);
-          formData.append("surface",surface);
-          formData.append("postcode",postcode);
-          formData.append("numberOfPitches",numberOfPitches);
-          formData.append("image", image);
+          formdata.append("title", title);
+          formdata.append("format",format);
+          formdata.append("surface",surface);
+          formdata.append("postcode",postcode);
+          formdata.append("numberOfPitches",numberOfPitches);
+          formdata.append("image", image);
+
+          axios.post('http://localhost:4000/api/Turfs' , formdata).then((res) => {
+            console.log(res);
+            console.log(title);
+          })
           
     
-          const res = await fetch(`http://localhost:4000/api/Turfs`, {
-            method: "POST",
-            body: formData
-          
-          });
-    
-          const json = await res.json()
-    
-          if (res.ok) {
-           console.log(json);
-          }
+         
         } catch (error) {
           console.log(error);
         }
@@ -47,7 +44,7 @@ const Form = () => {
         <>
 
        
-         <div style={{ maxWidth: 500, margin: "auto" }}>
+         <form onSubmit={turfUpload} style={{ maxWidth: 500, margin: "auto" }}>
           <div className="mb-3">
             <input
               className="form-control"
@@ -116,16 +113,17 @@ const Form = () => {
               name="image"
               onChange = {(e) => {
                setImage(  e.target.files[0])
+               console.log(e.target.files);
               }}
               
             />
           </div>
           <div className="text-center">
-            <button className="btn btn-primary" onClick={handleSubmit} >
+            <button className="btn btn-primary"  >
               Submit
             </button>
           </div>
-        </div>
+        </form>
         </>
       )
   
