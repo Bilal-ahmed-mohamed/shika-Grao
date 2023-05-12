@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Footer from './components/Footer'
+import Turfs from './pages/Turfs'
 
 
 
@@ -16,7 +17,7 @@ function App() {
       <Navbar/>
       <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path='/Turfs' />
+      <Route path='/Turfs' element={<Turfs/>} />
       </Routes>
       
       <Footer/>
