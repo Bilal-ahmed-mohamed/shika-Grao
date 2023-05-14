@@ -66,7 +66,7 @@ const Home = () => {
      
      
      </div>
-     <button className='w-32 h-12 block mx-auto bg-grey ' > View More </button>
+     <button className='w-32 h-12 block mx-auto bg-grey'> <Link to="/Turfs" > View More </Link> </button>
     </section>
 
     <section className='h-full  mb-4 ' >

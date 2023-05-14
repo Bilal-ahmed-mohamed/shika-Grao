@@ -7,6 +7,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Footer from './components/Footer'
 import Turfs from './pages/Turfs'
+import HostAturf from './pages/HostAturf'
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path='/Turfs' element={<Turfs/>} />
+      <Route path='/Host' element={<HostAturf/>} />
       </Routes>
       
       <Footer/>
