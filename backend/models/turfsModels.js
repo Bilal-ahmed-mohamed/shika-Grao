@@ -27,6 +27,10 @@ const Turfs = db.define('turfs', {
         type:DataTypes.STRING,
         allowNull : false
     },
+    facilities:{
+        type:DataTypes.STRING,
+        allowNull : false
+    },
     startTime :{
         type:DataTypes.STRING,
         allowNull : false

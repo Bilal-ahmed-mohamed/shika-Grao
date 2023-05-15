@@ -4,28 +4,34 @@ import React , {useState} from 'react'
 const HostAturf = () => {
 
   const [step, setStep] = useState(1);
-  const [checkedBoxes, setCheckedBoxes] = useState([]);
+ 
   const [title , setTitle] = useState("");
   const [format , setFormat] = useState("");
   const [surface , setSurface] = useState("");
   const [postcode , setPostcode] = useState("");
   const [numberOfPitches , setNumberOfPitches] = useState("");
   const [venue , setVenue] = useState("");
+  const [facilities, setFacilities] = useState([]);
   const [startTime , setStartTime] = useState("");
   const [closeTime , setCloseTime] = useState("");
   const [matchDuration , setMatchDuration] = useState("");
   const [image , setImage] = useState("");
   
 
-  const handleCheckboxChange = (event) => {
-    const { value, checked } = event.target;
+  const handleFacilities = (e) => {
+    const { value, checked } = e.target;
 
     if (checked) {
-      setCheckedBoxes([...checkedBoxes, value]);
+      setFacilities(pre => [...pre , value])
+      
     } else {
-      setCheckedBoxes(checkedBoxes.filter((item) => item !== value));
+
+      setFacilities(pre => {
+        return [...pre.filter(facility => facility===value)]
+      })
     }
   };
+  
 
   const handleNext = () => {
     setStep(step + 1);
@@ -47,6 +53,7 @@ const HostAturf = () => {
       formdata.append("postcode" , postcode)
       formdata.append("numberOfPitches" , numberOfPitches)
       formdata.append("venue" , venue)
+      formdata.append("facilities" , facilities)
       formdata.append("startTime" , startTime)
       formdata.append("closeTime" , closeTime)
       formdata.append("matchDuration" , matchDuration)
@@ -65,11 +72,11 @@ const HostAturf = () => {
   return (
 
     <body className=' bg-green-500 w-full h-full' >
-      <header className=' bg-amber-600 h-52 w-full' >
+      <header className=' bg-white h-52 w-full' >
         <div className=' bg-green-700 h-full max-w-7xl mx-auto' >
            <h1 className='text-3xl text-center py-4'>Add Your Turfs To Our Website</h1>
            <p className=' text-2xl text-center py-7' >Follow The Simple Steps And Add Your Turf Below</p>
-           <button className=' bg-lightGreen w-24 h-10 mL-auto' > Add </button>
+           <button className=' bg-lightGreen w-24 h-10' > Add </button>
         </div>
       </header>
       <form  onSubmit={turfUploader} className=' bg-grey h-auto max-w-7xl mx-auto flex mb-10'>
@@ -159,8 +166,8 @@ const HostAturf = () => {
                       type="checkbox"
                       className="form-checkbox h-5 w-5 text-gray-600"
                       value="changing Rooms"
-                      // checked={checkedBoxes.includes('changing Rooms')}
-                      onChange={handleCheckboxChange}
+                      
+                      onChange={handleFacilities}
                     />
                     <span className="ml-2 text-gray-700">Changing Rooms</span>
                  </label>
@@ -169,8 +176,8 @@ const HostAturf = () => {
                     type="checkbox"
                     className="form-checkbox h-5 w-5 text-gray-600"
                     value="Flood Lights"
-                    // checked={checkedBoxes.includes('Flood Lights')}
-                    onChange={handleCheckboxChange}
+                    
+                    onChange={handleFacilities}
                   />
                   <span className="ml-2 text-gray-700">Flood Lights</span>
                 </label>
@@ -179,8 +186,8 @@ const HostAturf = () => {
                     type="checkbox"
                     className="form-checkbox h-5 w-5 text-gray-600"
                     value="Toilets"
-                    // checked={checkedBoxes.includes('Toilets')}
-                    onChange={handleCheckboxChange}
+                
+                    onChange={handleFacilities}
                   />
                   <span className="ml-2 text-gray-700">Toilets</span>
               </label>
@@ -194,13 +201,27 @@ const HostAturf = () => {
         <label htmlFor="">Select The Time The Ground is Open :</label>
         </div>
         <div className=' space-x-7' >
-        <input className=' w-24' type="time" name="" id="" />
-        <input className=' w-24' type="time" name="" id="" />
+        <input value={startTime} name="startTime" 
+        onChange={(e) => {
+          setStartTime(e.target.value)
+        }}
+         className=' w-24' type="time"  id="" />
+        <input
+        value={closeTime}
+        onChange={(e) => {
+          setCloseTime(e.target.value)
+        }}
+         className=' w-24' type="time" name="closeTime" id="" />
         </div>
         
        </div>
 
-       <select className='w-3/4 h-16 text-center rounded-xl' name="venue" value={venue} placeholder='Enter The Venue Type' id="">
+       <select 
+       value={matchDuration} 
+       onChange={(e) => {
+        setMatchDuration(e.target.value)
+       }}
+       className='w-3/4 h-16 text-center rounded-xl' name="matchDuration" placeholder='Enter The Venue Type' id="">
               <option value="Choose The Match Duration">Choose The Match Duration</option>
              <option value="1 Hour">1 Hour</option>
              <option value="1 Hour 30 Minutes">1 Hour 30 Minutes</option>
