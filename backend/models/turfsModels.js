@@ -23,6 +23,22 @@ const Turfs = db.define('turfs', {
         type:DataTypes.DOUBLE,
         allowNull : false
     },
+    venue:{
+        type:DataTypes.STRING,
+        allowNull : false
+    },
+    startTime :{
+        type:DataTypes.STRING,
+        allowNull : false
+    },
+    closeTime : {
+        type:DataTypes.STRING,
+        allowNull : false
+    },
+    matchDuration : {
+        type:DataTypes.STRING,
+        allowNull : false
+    },
     Image:{
         type:DataTypes.STRING,
         allowNull : false

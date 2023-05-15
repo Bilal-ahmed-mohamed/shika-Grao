@@ -38,6 +38,10 @@ const createTurfs = async (req,res) => {
     surface : req.body.surface,
     postcode : req.body.postcode,
     numberOfPitches : req.body.numberOfPitches,
+    venue : req.body.venue,
+    startTime : req.body.startTime,
+    closeTime : req.body.closeTime,
+    matchDuration : req.body.matchDuration,
     Image : result.secure_url
 
  }
