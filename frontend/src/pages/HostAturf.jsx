@@ -72,21 +72,21 @@ const HostAturf = () => {
   return (
 
     <body className=' bg-green-500 w-full h-full' >
-      <header className=' bg-white h-52 w-full' >
-        <div className=' bg-green-700 h-full max-w-7xl mx-auto' >
+      <header className=' bg-white h-56 lg:h-52 w-full' >
+        <div className=' bg-green-700 h-full max-w-7xl mx-auto flex flex-col justify-center items-center' >
            <h1 className='text-3xl text-center py-4'>Add Your Turfs To Our Website</h1>
            <p className=' text-2xl text-center py-7' >Follow The Simple Steps And Add Your Turf Below</p>
-           <button className=' bg-lightGreen w-24 h-10' > Add </button>
+           <button className=' bg-lightGreen h-12 w-24 lg:h-10 left-auto mb-3' > Add </button>
         </div>
       </header>
       <form  onSubmit={turfUploader} className=' bg-grey h-auto max-w-7xl mx-auto flex mb-10'>
         {
           step === 1 && (
-            <div className='w-9/12 mx-auto flex flex-col justify-center items-center space-y-8' >
+            <div className='w-full mx-auto flex flex-col  justify-center items-center space-y-8 lg:w-9/12' >
 
               <h1 className=' text-center text-2xl mt-3'>Phase 1</h1>
               <input 
-              className='w-3/4  h-10 text-center rounded-xl'
+              className=' w-11/12 lg:w-3/4 h-10 text-center rounded-xl'
               type="text"
                placeholder='Enter Name Of the Turf'
                name='title'
@@ -95,7 +95,7 @@ const HostAturf = () => {
                 setTitle(e.target.value)
                }} />
                <input
-               className='w-3/4 h-10 text-center rounded-xl '
+               className='w-11/12 lg:w-3/4  h-10 text-center rounded-xl '
                 type="text"
                placeholder='Enter The Format'
                name='format'
@@ -104,7 +104,7 @@ const HostAturf = () => {
                  setFormat(e.target.value)
                }} />
                <input
-               className='w-3/4 h-10 text-center rounded-xl '
+               className='w-11/12 lg:w-3/4  h-10 text-center rounded-xl '
                 type="text"
                placeholder='Enter The Surface'
                name='surface'
@@ -113,7 +113,7 @@ const HostAturf = () => {
                  setSurface(e.target.value)
                }} />
                <input
-               className='w-3/4 h-10 text-center rounded-xl '
+               className='w-11/12 lg:w-3/4  h-10 text-center rounded-xl '
                 type="text"
                placeholder='Enter The Postcode'
                name='postcode'
@@ -122,7 +122,7 @@ const HostAturf = () => {
                 setPostcode(e.target.value)
                }}/>
                <input
-               className='w-3/4 h-10 text-center rounded-xl '
+               className='w-11/12 lg:w-3/4  h-10 text-center rounded-xl '
                 type="text"
                placeholder='Enter The Number Of Pitches'
                name='numberOfPitches'
@@ -138,11 +138,11 @@ const HostAturf = () => {
         }
         {
           step === 2 && (
-       <div className='w-9/12 mx-auto flex flex-col justify-center items-center space-y-8' >
+       <div className='w-full  mx-auto flex flex-col justify-center items-center space-y-8 lg:w-9/12' >
 
                     <h1 className=' text-center text-2xl mt-3'>Phase 2</h1>
 
-             <select className='w-3/4 h-16 text-center rounded-xl' name="venue" value={venue} placeholder='Enter The Venue Type'
+             <select className='w-11/12 lg:w-3/4  h-16 text-center rounded-xl' name="venue" value={venue} placeholder='Enter The Venue Type'
               onChange={ (e) => {
                 setVenue(e.target.value)
               }} >
@@ -152,7 +152,7 @@ const HostAturf = () => {
              </select>
 
 
-             <div className=' bg-white w-3/4 h-16 flex flex-col justify-center items-center space-y-5 rounded-xl' >
+             <div className=' bg-white w-11/12 h-20 lg:w-3/4 lg:h-16 flex flex-col justify-center items-center space-y-5 rounded-xl' >
 
               <div>
                    <label htmlFor="">Choose The Facilities You Offer : </label>
@@ -196,7 +196,7 @@ const HostAturf = () => {
       
        </div>
 
-       <div className='bg-white w-3/4 h-16 text-center rounded-xl space-y-3 '  >
+       <div className='bg-white w-11/12 lg:w-3/4 h-16 text-center rounded-xl space-y-3 '  >
         <div>
         <label htmlFor="">Select The Time The Ground is Open :</label>
         </div>
@@ -221,7 +221,7 @@ const HostAturf = () => {
        onChange={(e) => {
         setMatchDuration(e.target.value)
        }}
-       className='w-3/4 h-16 text-center rounded-xl' name="matchDuration" placeholder='Enter The Venue Type' id="">
+       className='w-11/12 lg:w-3/4 h-16 text-center rounded-xl' name="matchDuration" placeholder='Enter The Venue Type' id="">
               <option value="Choose The Match Duration">Choose The Match Duration</option>
              <option value="1 Hour">1 Hour</option>
              <option value="1 Hour 30 Minutes">1 Hour 30 Minutes</option>

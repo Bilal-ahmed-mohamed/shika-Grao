@@ -30,7 +30,7 @@ const getAllTurfs = async (req,res) =>{
 // create new turfs
 const createTurfs = async (req,res) => {
 
-  const result = await cloudinary.uploader.upload(req.file.path, {folder :"Turfs"});
+  const result = await cloudinary.uploader.upload(req.file.path, {folder: "Turfs"});
 
  let newTurf = {
     title : req.body.title,
