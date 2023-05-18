@@ -6,6 +6,7 @@ import { MdOutlinePayment, MdFacebook } from "react-icons/md";
 import { GiBabyfootPlayers } from "react-icons/gi";
 import axios from 'axios'
 
+
 const Home = () => {
   const [turf , setTurfs] = useState([]);
 
@@ -21,7 +22,7 @@ const Home = () => {
     gettur();
    },[])
   return (
-    <body className=' bg-white ' >
+    <body className='' >
       
     
     <section className='w-full  h-96' >
