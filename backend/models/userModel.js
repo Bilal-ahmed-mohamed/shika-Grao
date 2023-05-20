@@ -14,6 +14,10 @@ const Users =  db.define('users' , {
         type:DataTypes.STRING,
         allowNull:false
     },
+    accountType : {
+        type:DataTypes.STRING,
+        allowNull:false
+    }
 
     
 } ,

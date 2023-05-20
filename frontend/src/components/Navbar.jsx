@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to='/Host' > Host A New Turf </Link>      
       </div>
       <div className="hidden w-56  space-x-3 md:flex justify-around  ">
-        <button> <Link to='/Login' className='hover:text-grey' >Login</Link> </button>
+        <button> <Link to='/Login' className='' >Login</Link> </button>
         <button> <Link to='/Signup'>Signup </Link> </button>
       </div>
       <div class=" md:hidden space-y-2 w-20 bg-grey px-6 py-2 ">

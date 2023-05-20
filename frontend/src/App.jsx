@@ -9,6 +9,10 @@ import Footer from './components/Footer'
 import Turfs from './pages/Turfs'
 import HostAturf from './pages/HostAturf'
 import SignUp from './pages/SignUp'
+import TurfOwner from './pages/turfOwner'
+import UserNormal from './pages/userNormal'
+import Login from  './pages/Login'
+
 
 
 
@@ -22,6 +26,9 @@ function App() {
       <Route path='/Turfs' element={<Turfs/>} />
       <Route path='/Host' element={<HostAturf/>} />
       <Route path='/Signup' element={<SignUp/>} />
+      <Route path='/TurfOwner' element={<TurfOwner/>}  />
+      <Route path='/userNormal' element={<UserNormal/>} />
+      <Route path='/Login' element={<Login/>} />
       </Routes>
       
       <Footer/>

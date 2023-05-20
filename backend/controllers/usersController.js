@@ -66,9 +66,9 @@ const loginUser = async (req,res) => {
 // signup user 
 const signupUser = async (req,res) => {
   
-    const {username , email , password} = req.body;
+    const {username , email , password , accountType} = req.body;
     // validation
-    if ( !username ||  !email || !password) {
+    if ( !username ||  !email || !password || !accountType) {
         return res.status(401).json({
             success:false,
             message:"all fields are required",
@@ -98,7 +98,7 @@ const signupUser = async (req,res) => {
         }
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(password,salt)
-        const user = await Users.create({username,email,password:hash})
+        const user = await Users.create({username,email,password:hash,accountType})
         // create token
         const token = createToken(user.id)
         res.status(200).json({
