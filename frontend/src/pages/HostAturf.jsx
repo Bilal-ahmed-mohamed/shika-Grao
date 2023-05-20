@@ -71,15 +71,15 @@ const HostAturf = () => {
   }
   return (
 
-    <body className=' bg-green-500 w-full h-full' >
-      <header className=' bg-white h-56 lg:h-52 w-full' >
-        <div className=' bg-green-700 h-full max-w-7xl mx-auto flex flex-col justify-center items-center' >
+    <body className=' bg-primary  w-full h-full' >
+      <header className='h-56 lg:h-52 w-full mb-4' >
+        <div className=' bg-secondary h-full max-w-7xl mx-auto flex flex-col justify-center items-center' >
            <h1 className='text-3xl text-center py-4'>Add Your Turfs To Our Website</h1>
            <p className=' text-2xl text-center py-7' >Follow The Simple Steps And Add Your Turf Below</p>
-           <button className=' bg-lightGreen h-12 w-24 lg:h-10 left-auto mb-3' > Add </button>
+           <button className=' bg-button h-12 w-24 lg:h-10 left-auto mb-3' > Add </button>
         </div>
       </header>
-      <form  onSubmit={turfUploader} className=' bg-grey h-auto max-w-7xl mx-auto flex mb-10'>
+      <form  onSubmit={turfUploader} className=' bg-light h-auto max-w-7xl mx-auto flex mb-10'>
         {
           step === 1 && (
             <div className='w-full mx-auto flex flex-col  justify-center items-center space-y-8 lg:w-9/12' >
@@ -131,7 +131,7 @@ const HostAturf = () => {
                 setNumberOfPitches(e.target.value)
                }}
                 />
-                <button className="px-4 w-28 h-14 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handleNext}>Next</button>
+                <button className="px-4 w-28 h-14 font-bold text-white bg-button rounded hover:bg-blue-700" onClick={handleNext}>Next</button>
                 
             </div>
           )
@@ -245,8 +245,8 @@ const HostAturf = () => {
             />
 
       <div className=" w-3/4 flex justify-between">
-           <button className="px-4  w-28 h-14 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handlePrev}>Back</button>
-           <button className="px-4  w-28 h-14 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">ADD</button>
+           <button className="px-4  w-28 h-14 font-bold text-white bg-button rounded hover:bg-blue-700" onClick={handlePrev}>Back</button>
+           <button className="px-4  w-28 h-14 font-bold text-white bg-button rounded hover:bg-blue-700">ADD</button>
       </div>
       
 

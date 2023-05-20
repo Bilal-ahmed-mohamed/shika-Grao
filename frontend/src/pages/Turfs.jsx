@@ -16,9 +16,9 @@ const Turfs = () => {
     })
     
   return (
-    <body className=' bg-black' >
+    <body className='' >
 
-        <section className=' bg-white  w-full h-full mb-4  ' >
+        <section className=' w-full h-full mb-4  ' >
           <div className='bg-grey max-w-7xl space-y-4 mx-auto lg:flex flex-wrap  lg:space-y-0 lg:justify-between p-10 px-0 ' >
              {
                  turfs.map((fetchedData) => (

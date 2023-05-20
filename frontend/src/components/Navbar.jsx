@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {BiFootball} from 'react-icons/bi';
 const Navbar = () => {
   return (
-    <nav className='w-full bg-white py-2' >
+    <nav className='w-full bg-primary py-2' >
       <span className='navBar bg-grey mx-auto py-2  max-w-7xl flex justify-evenly' >
       <div className="logo w-40 float-left  bg-grey flex items-center ">
         <h1 className='' >shikaGrao   </h1>

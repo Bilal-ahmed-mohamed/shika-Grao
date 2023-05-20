@@ -14,6 +14,9 @@ export default {
     extend: {
       colors:{
         primary : '#dfece0',
+        secondary : '#c8d0c8',
+        button : '#6aa970',
+        light : "#ecf4ec",
         grey : 'rgb(219, 223, 234)',
         lightGreen : 'hsl(116, 89%, 35%)'
         
