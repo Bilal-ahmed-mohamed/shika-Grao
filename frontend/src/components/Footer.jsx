@@ -5,7 +5,7 @@ import { MdFacebook } from "react-icons/md";
 const Footer = () => {
   return (
     <footer className=' h-36 lg:h-28 w-full ' >
-       <div className=' w-full  lg:max-w-7xl h-full mx-auto lg:flex  bg-slate-700 ' >
+       <div className=' w-full  lg:max-w-7xl h-full mx-auto lg:flex bg-secondary ' >
         <div className=' w-full h-1/2  lg:w-1/2 lg:h-full flex flex-col justify-center items-center space-x-7' > 
         <div className='space-x-6 ' >
            <Link> Home </Link> 

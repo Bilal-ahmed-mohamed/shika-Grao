@@ -50,8 +50,8 @@ const Home = () => {
       {
         turf.map((fetchedData) => (
 
-          <div key={fetchedData._id} className=' w-11/12 mx-auto border bg-secondary space-y-3 lg:w-72  h-full lg:mx-0 rounded-lg ' >
-           <img className=' h-36 w-full lg:w-72 lg:h-36' src={fetchedData.Image} alt="" />
+          <div key={fetchedData._id} className=' w-3/4 mx-auto border bg-secondary space-y-3 lg:w-72  h-full lg:mx-0 rounded-lg ' >
+           <img className=' h-40 w-full lg:w-72 lg:h-36' src={fetchedData.Image} alt="" />
            <h1 className=' text-3xl text-center  font-bold ' >{fetchedData.title}</h1>
            <p className='ml-5' > Format : {fetchedData.format}</p>
            <p className=' ml-5' > Surface : {fetchedData.surface}</p>

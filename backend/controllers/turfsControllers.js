@@ -58,6 +58,7 @@ const createTurfs = async (req,res) => {
             const Turf = await Turfs.create(newTurf);
             res.status(200).json({
                 success : true,
+                message : "New Turf Added",
                 Turf,
             })
         } catch (error) {
