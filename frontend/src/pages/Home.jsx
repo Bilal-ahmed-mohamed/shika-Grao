@@ -72,7 +72,7 @@ const Home = () => {
 
     <section className='h-full  mb-4 ' >
       <h2 className=' text-center text-3xl py-5  lg:text-5xl ' >Book Your Game within Minutes</h2>
-      <span className=' bg-grey mx-auto space-y-5 lg:max-w-7xl lg:flex justify-between lg:space-y-0 py-5 rounded-lg ' > 
+      <span className=' bg-light mx-auto space-y-5 lg:max-w-7xl lg:flex justify-between lg:space-y-0 py-5 rounded-lg ' > 
         <div className='w-11/12 h-40 mx-auto lg:w-60 lg:h-60 flex lg:flex-col lg:justify-center items-center   px-6 lg:space-y-3 flex-row rounded-md ' >
         <div className=' bg-grey  w-36  h-24 flex justify-center items-center rounded-lg ' >
         <FcSearch size='4em' />

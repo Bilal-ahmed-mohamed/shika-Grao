@@ -1,11 +1,12 @@
 const Turfs = require("../models/turfsModels")
 const cloudinary = require("cloudinary")
+const dotenv = require("dotenv");
 
 
 cloudinary.config({
-    cloud_name : "dxdiozidt",
-    api_key: "315532219354147",
-    api_secret : "TnmzQ0jEgFdAz29xBf2IsQGL_ww"
+    cloud_name : process.env.CLOUD_NAME,
+    api_key:  process.env.CLOUD_KEY,
+    api_secret : process.env.CLOUD_KEY_SECRET
    });
    
 

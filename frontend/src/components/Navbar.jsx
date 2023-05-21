@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className='w-full bg-primary py-2' >
       <span className='navBar bg-secondary mx-auto py-2  max-w-7xl flex justify-evenly' >
-      <div className="logo w-40 float-left  bg-grey flex items-center ">
+      <div className="logo w-40 float-left flex items-center ">
         <h1 className='' >shikaGrao   </h1>
         <span > <BiFootball size='2em' color='green' /> </span>
       </div>
