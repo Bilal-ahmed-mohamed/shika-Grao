@@ -9,8 +9,8 @@ import Footer from './components/Footer'
 import Turfs from './pages/Turfs'
 import HostAturf from './pages/HostAturf'
 import SignUp from './pages/SignUp'
-import TurfOwner from './pages/turfOwner'
-import UserNormal from './pages/userNormal'
+import TurfOwner from './pages/TurfOwner'
+import UserNormal from './pages/UserNormal'
 import Login from  './pages/Login'
 
 
