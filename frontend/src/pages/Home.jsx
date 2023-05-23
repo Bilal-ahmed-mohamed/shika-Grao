@@ -13,7 +13,7 @@ const Home = () => {
 
 
   const gettur = async() =>{
-    const tur = await axios.get('http://localhost:4000/api/Turfs')
+    const tur = await axios.get('https://shika-grao-api.onrender.com')
     setTurfs(tur.data.turfs)
     setTurfs(tur.data.turfs.slice(0,3));
     console.log(tur);

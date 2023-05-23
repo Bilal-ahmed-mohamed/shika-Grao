@@ -59,7 +59,7 @@ const HostAturf = () => {
       formdata.append("matchDuration" , matchDuration)
       formdata.append("image" , image)
 
-      axios.post('http://localhost:4000/api/Turfs' , formdata)
+      axios.post('https://shika-grao-api.onrender.com' , formdata)
       .then((res) => {
         console.log(res);
         console.log(title);
