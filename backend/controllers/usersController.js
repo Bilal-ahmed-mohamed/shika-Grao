@@ -103,6 +103,7 @@ const signupUser = async (req,res) => {
         const token = createToken(user.id)
         res.status(200).json({
             success:true,
+            message: "You Have Signed Up",
             email,token
         })
     } catch (error) {
