@@ -12,7 +12,7 @@ import SignUp from './pages/SignUp'
 import TurfOwner from './pages/TurfOwner'
 import UserNormal from './pages/UserNormal'
 import Login from  './pages/Login'
-
+import IndivualTurf from './pages/IndivualTurf'
 
 
 
@@ -29,6 +29,7 @@ function App() {
       <Route path='/TurfOwner' element={<TurfOwner/>}  />
       <Route path='/userNormal' element={<UserNormal/>} />
       <Route path='/Login' element={<Login/>} />
+      <Route path='/IndivualTurf' element={<IndivualTurf/>} />
       </Routes>
       
       <Footer/>

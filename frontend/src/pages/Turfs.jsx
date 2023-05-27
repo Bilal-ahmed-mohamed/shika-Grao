@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-
+import { Link } from 'react-router-dom';
 const Turfs = () => {
   
     const [turfs , setTurfs] = useState([]);
@@ -30,7 +30,7 @@ const Turfs = () => {
                 <p className=' ml-5' > Surface : {fetchedData.surface}</p>
                 <p className='ml-5' > Area : {fetchedData.postcode}</p>
                 <p className='ml-5' > Pitches : {fetchedData.numberOfPitches}</p>
-                <button className=' bg-button w-28 h-10 block mx-auto' > Book Grao </button>
+                <button className=' bg-button w-28 h-10 block mx-auto' > <Link to={`/IndivualTurf/${fetchedData.id}`}> Book Grao</Link>  </button>
           </div>
                  ))
              }
