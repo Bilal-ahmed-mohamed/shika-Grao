@@ -29,7 +29,7 @@ function App() {
       <Route path='/TurfOwner' element={<TurfOwner/>}  />
       <Route path='/userNormal' element={<UserNormal/>} />
       <Route path='/Login' element={<Login/>} />
-      <Route path='/IndivualTurf' element={<IndivualTurf/>} />
+      <Route path='/IndivualTurf/:id' element={<IndivualTurf/>} />
       </Routes>
       
       <Footer/>

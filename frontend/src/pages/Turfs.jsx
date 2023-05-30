@@ -6,7 +6,7 @@ const Turfs = () => {
     const [turfs , setTurfs] = useState([]);
 
     const fetchTurfs = async () => {
-        const Turfs = await axios.get('https://shika-grao-api.onrender.com/api/Turfs')
+        const Turfs = await axios.get('http://localhost:4000/api/Turfs')
         setTurfs(Turfs.data.turfs);
         console.log(Turfs);
     }
