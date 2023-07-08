@@ -20,6 +20,7 @@ const IndivualTurf = () => {
 
 
 
+
   
 
   const singleTurf = async () => {
@@ -37,6 +38,7 @@ const IndivualTurf = () => {
    setMatchDuration(res.data.singleTurf.matchDuration);
    setImage(res.data.singleTurf.Image);
 
+
    
   }
 
@@ -45,35 +47,43 @@ const IndivualTurf = () => {
   }, [])
 
   return (
-     <div className=' bg-red-500 w-full h-full' > 
-      <section className=' bg-yellow-500 max-w-7xl mx-auto flex' >
-        <div className=' bg-blue-700 w-4/6 h-full space-y-6' >
-          <h1 className=' font-bold text-4xl' >{title}</h1>
+     <div className=' bg-red-500 w-full h-full py-5' > 
+      <section className=' bg-yellow-500 max-w-7xl border-2 border-lime-700 mx-auto flex h-full ' >
+        <div className=' bg-blue-700 w-4/6 h-full space-y-8' >
+          <div className=' bg-green-600'>
+          <h1 className='font-bold text-4xl' >{title}</h1>
+          </div>
           <div className=' bg-green-900 w-full h-72' >
-            <img src={`https://shika-grao-api.onrender.com/api/Turfs/${image}`} alt="" />
+            <img className=' w-full h-72' src={image} alt="" />
           </div>
-          <div>
-            <p>
-              its an {venue} turf  it opens at {startTime} Am and it closes at {closeTime} Pm and it has {numberOfPitches} Pitches
-            </p>
-          </div>
+          
         </div>
-        <div className=' bg-green-800 w-1/3 h-96' >
-           <div>
+        <div className=' bg-teal-700 w-1/3 h-96' >
+           <div className=' border-2 border-l-gray-200' >
             <h1 className=' text-4xl'>Details</h1>
-            <p>{format}</p>
-            <p>{surface}</p>
-            <p>{matchDuration}</p>
+            <div className=' w-full h-10 bg-amber-700 flex items-center justify-center  '>
+            <p>{format} || {surface} || {matchDuration}  </p>
+            </div>
+            <div className='w-full h-12 bg-emerald-400' >
             <p>{facilities}</p>
-            <p>{venue}</p>
-            <p>{numberOfPitches}</p>
-            <p>{startTime}</p>
-            <p>{closeTime}</p>
+            </div>
+            <div className='w-full h-16 bg-blue-600'>
+              <div className='h-2/4 bg-gray-600 flex flex-row justify-around '>
+                  <p> Venue Type :  {venue}</p>
+                  <p> No: Of Pitches : {numberOfPitches}</p>
+              </div>
+              <div className='h-2/4 bg-red-700 flex flex-row justify-around ' >
+                    <p> StartTime : {startTime}</p>
+                    <p> closeTime :  {closeTime}</p>
+              </div>
+          
+            
+            </div>
            </div>
-           <div>
+           <div className='space-y-3' >
             <h1 className=' text-4xl'>Address</h1>
             <p>{postcode}</p>
-            <button>Map</button>
+            <button className=' bg-button w-28 h-8 block'> View ON Map</button>
            </div>
         </div>
       </section>
