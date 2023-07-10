@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import { BiCheck, BiCurrentLocation } from "react-icons/bi";
 
 const IndivualTurf = () => {
+
+  
 
   const {id} = useParams();
   const [title , setTitle] = useState('');
@@ -12,11 +14,12 @@ const IndivualTurf = () => {
   const [postcode , setPostcode] = useState('');
   const [numberOfPitches , setNumberOfPitches] = useState('');
   const [venue , setVenue] = useState('');
-  const [facilities, setFacilities] = useState([]);
+  const [facilities, setFacilities] = useState('');
   const [startTime , setStartTime] = useState('');
   const [closeTime , setCloseTime] = useState('');
   const [matchDuration , setMatchDuration] = useState('');
   const [image , setImage] = useState('');
+  
 
 
 
@@ -37,53 +40,74 @@ const IndivualTurf = () => {
    setCloseTime(res.data.singleTurf.closeTime);
    setMatchDuration(res.data.singleTurf.matchDuration);
    setImage(res.data.singleTurf.Image);
-
-
    
   }
 
+  const  fetchedFacilities = facilities.split(',');
+
+  console.log(facilities);
+   console.log(fetchedFacilities);
   useEffect(() => {
     singleTurf();
+   
+    // console.log(fetchedFacilities);
+   
   }, [])
 
   return (
-     <div className=' bg-red-500 w-full h-full py-5' > 
-      <section className=' bg-yellow-500 max-w-7xl border-2 border-lime-700 mx-auto flex h-full ' >
-        <div className=' bg-blue-700 w-4/6 h-full space-y-8' >
-          <div className=' bg-green-600'>
-          <h1 className='font-bold text-4xl' >{title}</h1>
+     <div className=' w-full h-full py-5 ' > 
+      <section className=' mx-auto lg:flex h-full lg:max-w-7xl' >
+        <div className=' mx-auto mb-3 w-11/12 bg-primary lg:w-8/12 h-full lg:mr-3 space-y-7 shadow-xl ' >
+          <div className=' h-14 flex  justify-start items-center'>
+          <h1 className='font-bold text-3xl'>{title}</h1>
           </div>
-          <div className=' bg-green-900 w-full h-72' >
+          <div className=' bg-primary shadow-md w-full h-72' >
             <img className=' w-full h-72' src={image} alt="" />
           </div>
           
         </div>
-        <div className=' bg-teal-700 w-1/3 h-96' >
-           <div className=' border-2 border-l-gray-200' >
-            <h1 className=' text-4xl'>Details</h1>
-            <div className=' w-full h-10 bg-amber-700 flex items-center justify-center  '>
-            <p>{format} || {surface} || {matchDuration}  </p>
+        <div className=' mx-auto w-11/12  lg:w-1/3 h-auto  flex flex-col justify-between' >
+           <div className=' h-2/4 mb-3 bg-primary shadow-md rounded-md ' >
+            <div className=' bg-secondary' >
+            <h1 className=' text-center text-4xl'>Details</h1>
             </div>
-            <div className='w-full h-12 bg-emerald-400' >
-            <p>{facilities}</p>
+            <div className=' w-full h-10 flex items-center justify-center  '>
+            <p>{format} | {surface} | {matchDuration}  </p>
             </div>
-            <div className='w-full h-16 bg-blue-600'>
-              <div className='h-2/4 bg-gray-600 flex flex-row justify-around '>
+            <div className='w-full h-14 flex justify-around items-center' >
+            {
+                fetchedFacilities.map((item) => (
+                  <p className='flex'>   
+                      <BiCheck size="2em" /> 
+                      {item}
+                  </p>
+                ))
+              }
+            
+            </div>
+            <div className='h-2/4 flex flex-row justify-around ' >
+                    <p> OpenTime : {startTime} Am </p>
+                    <p> closeTime :  {closeTime} Pm </p>
+              </div>
+            {/* <div className='w-full h-16 '>
+              <div className='h-2/4  flex flex-row justify-around '>
                   <p> Venue Type :  {venue}</p>
                   <p> No: Of Pitches : {numberOfPitches}</p>
               </div>
-              <div className='h-2/4 bg-red-700 flex flex-row justify-around ' >
-                    <p> StartTime : {startTime}</p>
+              <div className='h-2/4 flex flex-row justify-around ' >
+                    <p> OpenTime : {startTime}</p>
                     <p> closeTime :  {closeTime}</p>
               </div>
-          
-            
-            </div>
+              
+              
+            </div> */}
            </div>
-           <div className='space-y-3' >
-            <h1 className=' text-4xl'>Address</h1>
-            <p>{postcode}</p>
-            <button className=' bg-button w-28 h-8 block'> View ON Map</button>
+           <div className=' h-36 space-y-3 bg-primary shadow-md rounded-md  ' >
+            <div className=' bg-secondary' >
+            <h1 className=' text-center text-4xl'>Address</h1>
+            </div>
+            <p className='text-center text-2xl' > Location  :  {postcode}</p>
+            <button className=' bg-button w-32 h-8 block mx-auto'> View ON Map</button>
            </div>
         </div>
       </section>
