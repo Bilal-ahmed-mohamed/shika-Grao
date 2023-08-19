@@ -13,7 +13,10 @@ import TurfOwner from './pages/TurfOwner'
 import UserNormal from './pages/UserNormal'
 import Login from  './pages/Login'
 import IndivualTurf from './pages/IndivualTurf'
-import Bilal from './pages/Bilal'
+
+
+
+
 
 
 
@@ -35,8 +38,9 @@ function App() {
       
       <Footer/>
       </BrowserRouter>
-        <Bilal/>
+ 
     </div>
+    
   )
 }
 
