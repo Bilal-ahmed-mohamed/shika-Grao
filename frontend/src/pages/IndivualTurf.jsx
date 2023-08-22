@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BiCheck, BiCurrentLocation } from "react-icons/bi";
 import Calendar from '../components/Calendar';
+import moment from 'moment';
+
 
 const IndivualTurf = () => {
 
@@ -44,19 +46,6 @@ const IndivualTurf = () => {
    
   }
 
-  const generateTimeSlots = () => {
-    const start = new Date(`2023-08-17T${startTime}`);
-    const end = new Date(`2023-08-17T${endTime}`);
-    const timeSlots = [];
-
-    while (start < end) {
-      const slot = new Date(start);
-      timeSlots.push(slot);
-      start.setHours(start.getHours() + 2);
-    }
-
-    return timeSlots;
-  };
 
 
 
@@ -75,7 +64,7 @@ const IndivualTurf = () => {
   }, [])
 
   return (
-     <div className=' w-full h-full py-5 bg-yellow-400 ' > 
+     <div className=' w-full h-full py-5  ' > 
       <section className=' mx-auto lg:flex h-full lg:max-w-7xl bg-purple-500' >
         <div className=' mx-auto mb-3 w-11/12 bg-primary lg:w-8/12 h-full lg:mr-3 space-y-7 shadow-xl ' >
           <div className=' h-14 flex  justify-start items-center'>
@@ -120,13 +109,15 @@ const IndivualTurf = () => {
            </div>
         </div>
       </section>
-
-      <div className=' bg-neutral-400 max-w-7xl mt-4 mx-auto'>
+      
+      <section className=' bg-primary max-w-7xl mt-3 mx-auto flex ' >
+      <div className=' bg-secondary  w-8/12   '>
          <Calendar/>
       </div>
-      <div className="grid grid-cols-2 gap-2">
-      
+      <div className="w-4/12 bg-fuchsia-600">
+      <h1>hhhhhhhhhh</h1>
     </div>
+    </section>
      </div>
   )
 }
