@@ -8,8 +8,6 @@ import moment from 'moment';
 
 const IndivualTurf = () => {
 
-  
-
   const {id} = useParams();
   const [title , setTitle] = useState('');
   const [format , setFormat] = useState('');
@@ -24,8 +22,6 @@ const IndivualTurf = () => {
   const [image , setImage] = useState('');
   const [masaaa , setMasaa] = useState([]);
   
-  
-
 
 
   const singleTurf = async () => {
@@ -46,9 +42,6 @@ const IndivualTurf = () => {
    
   }
 
-
-
-
   const  fetchedFacilities = facilities.split(',');
 
 
@@ -65,8 +58,8 @@ const IndivualTurf = () => {
 
   return (
      <div className=' w-full h-full py-5  ' > 
-      <section className=' mx-auto lg:flex h-full lg:max-w-7xl bg-purple-500' >
-        <div className=' mx-auto mb-3 w-11/12 bg-primary lg:w-8/12 h-full lg:mr-3 space-y-7 shadow-xl ' >
+      <section className=' mx-auto lg:flex h-full lg:max-w-7xl' >
+        <div className=' mx-auto mb-3 w-11/12 bg-primary lg:w-8/12 h-full lg:mr-3 space-y-7 shadow-2xl ' >
           <div className=' h-14 flex  justify-start items-center'>
           <h1 className='font-bold text-3xl'>{title}</h1>
           </div>
@@ -75,7 +68,7 @@ const IndivualTurf = () => {
           </div>
           
         </div>
-        <div className=' mx-auto w-11/12  lg:w-1/3 h-auto  flex flex-col justify-between' >
+        <div className=' mx-auto w-11/12  lg:w-1/3 h-auto  flex flex-col justify-around' >
            <div className=' h-2/4 mb-3 bg-primary shadow-md rounded-md ' >
             <div className=' bg-secondary' >
             <h1 className=' text-center text-4xl'>Details</h1>
@@ -110,8 +103,8 @@ const IndivualTurf = () => {
         </div>
       </section>
       
-      <section className=' bg-primary max-w-7xl mt-3 mx-auto flex ' >
-      <div className=' bg-secondary  w-8/12   '>
+      <section className=' flex flex-col bg-primary max-w-7xl mt-3 mx-auto lg:flex lg:flex-row ' >
+      <div className=' bg-secondary  lg:w-8/12   '>
          <Calendar/>
       </div>
       <div className="w-4/12 bg-fuchsia-600">

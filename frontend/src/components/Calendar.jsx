@@ -52,32 +52,20 @@ function Calendar() {
  };
 
 
-  // const renderDays = () => {
-  //   const days = [];
-  //   for (let i = 0; i < 7; i++) {
-  //     const date = addDays(currentDate, i);
-  //     const formattedDate = format(date, 'EEEE, MMM dd');
-  //     days.push(
-  //       <div key={i} className="border w-36 h-10">
-  //         {formattedDate}
-  //       </div>
-  //     );
-  //   }
-  //   return days;
-  // };
 
+// code to implement the time and slots for each day
   const renderTimeSlotsForDate = (date) => {
     const timeSlots = generateTimeSlots(date);
 
     return (
       
-      <div className="flex space-x-3 h-16  items-center">
-        <span className=' h-10 w-28 flex justify-center items-center  ' >
-        <h3 className="font-bold mb-2">{format(date, 'EEE, MMM dd')}</h3>
+      <div className=" flex space-x-3 lg:h-16  items-center ">
+        <span className=' h-20 lg:h-10 lg:w-28 flex justify-center items-center   ' >
+        <h3 className="font-bold ml-2 mb-2 lg:ml-0">{format(date, 'EEE, MMM dd')}</h3>
         </span>
-        <div className="flex ">
+        <div className="flex justify-around  flex-wrap h-auto w-auto  ">
           {timeSlots.map((slot, index) => (
-            <div key={index} className="bg-white text-black py-2 px-4 rounded cursor-pointer ml-2">
+            <div key={index} className=" mb-3 bg-grey text-black py-2 px-4 rounded cursor-pointer lg:mb-0 ml-2">
               {slot}
             </div>
           ))}
@@ -97,18 +85,18 @@ function Calendar() {
 
   return (
     <div className=" w-auto">
-      <div className="flex justify-between w-1/2 mb-4 bg-fuchsia-500">
+      <div className="  flex lg:mx-auto mt-5 justify-between lg:w-1/2 mb-4 ">
         <button
           onClick={previousWeek}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="px-4 py-2 bg-grey text-black rounded"
         >
-          Previous
+          Prev Week
         </button>
         <button
           onClick={nextWeek}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="px-4 py-2 bg-grey text-black rounded"
         >
-          Next
+          Next Week
         </button>
       </div>
       <div className=" w-auto h-auto  flex flex-col ">
