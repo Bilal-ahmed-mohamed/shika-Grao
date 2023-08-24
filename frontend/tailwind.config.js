@@ -16,9 +16,11 @@ export default {
         primary : '#dfece0',
         secondary : '#c8d0c8',
         button : '#6aa970',
+        buttonHover:'#8fb392',
         light : "#ecf4ec",
         grey : 'rgb(219, 223, 234)',
         lightGreen : 'hsl(116, 89%, 35%)'
+        
         
       },
       backgroundImage:{
