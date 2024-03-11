@@ -50,7 +50,8 @@ const loginUser = async (req,res) => {
                 const token = createToken(user.id)
                 res.status(200).json({
                     succes : true,
-                    email , token
+                    message : "you have logged in",
+                   user , email , token
                 })
             }
         })
@@ -104,7 +105,7 @@ const signupUser = async (req,res) => {
         res.status(200).json({
             success:true,
             message: "You Have Signed Up",
-            email,token
+            user,email,token
         })
     } catch (error) {
         res.json({message : error.message})

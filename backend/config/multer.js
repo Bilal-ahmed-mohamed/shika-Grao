@@ -10,7 +10,7 @@ const UploadImageTurf = multer({
             return;
         }
         cb(null , true);
-
+ 
     },
 
 }).single("image")

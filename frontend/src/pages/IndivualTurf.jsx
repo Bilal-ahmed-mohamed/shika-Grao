@@ -25,7 +25,7 @@ const IndivualTurf = () => {
 
 
   const singleTurf = async () => {
-   const res = await axios.get(`https://shika-grao-api.onrender.com/api/Turfs/${id}/`) 
+   const res = await axios.get(`http://localhost:4000/api/Turfs/${id}/`) 
    console.log(res);
    setTitle(res.data.singleTurf.title);
    setFormat(res.data.singleTurf.format);

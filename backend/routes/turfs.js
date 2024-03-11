@@ -5,7 +5,6 @@ const {
     createTurfs,
     updateTurf,
     deleteTurf,
-    uploadImage,
 
 } = require("../controllers/turfsControllers");
 const UploadImageTurf = require("../config/multer");

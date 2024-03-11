@@ -1,8 +1,16 @@
 import axios from 'axios';
 import React , {useState} from 'react'
+import { useTurfsContext } from '../hooks/useTurfsContext';
+import { json } from 'react-router-dom';
+import { useAuthContext } from '../hooks/useAuthContext';
+
+
 
 const HostAturf = () => {
+   
+  const {dispatch} = useTurfsContext();
 
+  const {user} = useAuthContext();
   const [step, setStep] = useState(1);
  
   const [title , setTitle] = useState("");
@@ -43,10 +51,16 @@ const HostAturf = () => {
 
   const turfUploader =  async (e) => {
      e.preventDefault();
+     console.log(user.user_id);
+     if (!user) {
+      setError('you must be logged in to post a turf')
+      return
+     }
 
      try {
       const formdata = new FormData();
 
+      formdata.append('user_id', user.user_id)
       formdata.append("title" , title)
       formdata.append("format" , format)
       formdata.append("surface" , surface)
@@ -58,15 +72,21 @@ const HostAturf = () => {
       formdata.append("closeTime" , closeTime)
       formdata.append("matchDuration" , matchDuration)
       formdata.append("image" , image)
+  
 
-      axios.post('https://shika-grao-api.onrender.com/api/Turfs' , formdata)
+      axios.post('http://localhost:4000/api/Turfs' , formdata , {
+        headers:{
+          'Authorization' : `Bearer ${user.token}`
+        }
+      })
       .then((res) => {
+        dispatch({type:'CREATE_TURFS' , payload:json})
         console.log(res);
-        console.log(title);
+        console.log(res.title);
         console.log(matchDuration);
       })
      } catch (error) {
-      console.log(error);
+      console.log(error.res.data);
      }
   }
   return (
@@ -236,7 +256,7 @@ const HostAturf = () => {
               className="form-control "
               type="file"
               accept="image/*"
-              name="image"
+              name="file"
               onChange = {(e) => {
                setImage(  e.target.files[0])
                console.log(e.target.files);

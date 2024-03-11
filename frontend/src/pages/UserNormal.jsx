@@ -11,7 +11,7 @@ const UserNormal = () => {
   const addUser = (e) => {
     e.preventDefault();
     
-    axios.post('https://shika-grao-api.onrender.com/api/users/Signup' , {
+    axios.post('http://localhost:4000/api/users/Signup' , {
        username : username,
        email : email,
        password : password,
@@ -29,7 +29,7 @@ const UserNormal = () => {
   return (
     <div className='w-full h-auto flex justify-center items-center py-3 mb-7 mt-7' >
       <form onSubmit={addUser} className=' w-full lg:w-5/12 h-96 bg-secondary flex flex-col justify-around'>
-        <h1 className=' text-center text-2xl'>Turf Owner Sign Up</h1>
+        <h1 className=' text-center text-2xl'>Normal Owner Sign Up</h1>
            <input className='w-3/4 h-10 mx-auto text-center rounded-xl' placeholder='Enter Username' type="text"
             name='username' 
             value={username}

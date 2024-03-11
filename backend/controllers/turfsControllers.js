@@ -13,7 +13,7 @@ cloudinary.config({
 // get all turfs
 const getAllTurfs = async (req,res) =>{
     try {
-        const turfs = await Turfs.findAll();
+        const turfs = await Turfs.findAll(); 
         res.status(200).json({
             success : true,
             turfs,
@@ -31,7 +31,13 @@ const getAllTurfs = async (req,res) =>{
 // create new turfs
 const createTurfs = async (req,res) => {
 
-  const result = await cloudinary.uploader.upload(req.file.path, {folder: "Turfs"});
+  const result = await cloudinary.uploader.upload(req.file.path, {folder: "Turfs"} , (error , result) => {
+    if (error) {
+      console.error('cloudinary upload error :',  error);
+    }else{
+      console.log('cloudinary upload result :' , result);
+    }
+  });
 
  let newTurf = {
     title : req.body.title,
@@ -44,10 +50,10 @@ const createTurfs = async (req,res) => {
     startTime : req.body.startTime,
     closeTime : req.body.closeTime,
     matchDuration : req.body.matchDuration,
-    Image : result.secure_url
-
+    Image : result.secure_url,
+    user:req.body.user_id
  }
-
+console.log(newTurf.user);
     if (!newTurf ) {
         return res.status(400).json({
             success : false,
@@ -75,7 +81,6 @@ const createTurfs = async (req,res) => {
     
 
 }
-
 
 // get a single turf
 const getAsingleTurf = async (req,res) => {

@@ -1,31 +1,45 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {useAuthContext}  from '../hooks/useAuthContext';
+
 const TurfOwner = () => {
 
   const [username , setUsername] = useState("")
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("")
   const [accountType , setAccountType] = useState("HostOwner");
+  const [error, setError] = useState("");
 
+
+  const {dispatch} = useAuthContext();
+ 
 
   const addUser = (e) => {
     e.preventDefault();
-    
-    axios.post('https://shika-grao-api.onrender.com/api/users/Signup' , {
-       username : username,
-       email : email,
-       password : password,
-       accountType : accountType
+
+    axios.post('http://localhost:4000/api/users/Signup', {
+        username: username,
+        email: email,
+        password: password,
+        accountType: accountType
     })
-    .then((res) => {
-      console.log(res);
-      localStorage.setItem('user' , JSON.stringify(res.data))
-      setUsername("")
-      setEmail("")
-      setPassword("")
+    .then(response => {
+        const json = response.data;
+        // console.log("json",json);
+        // console.log("message :",json.message);
+        const user = json.user;
+        // console.log("user", user);
+        localStorage.setItem('user', JSON.stringify(user));
+        dispatch({ type: 'LOGIN', payload: user });
+        setUsername("");
+        setEmail("");
+        setPassword("");
     })
-     
-  }
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
 
 
   return (

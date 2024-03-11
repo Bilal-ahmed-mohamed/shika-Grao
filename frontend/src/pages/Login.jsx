@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-
+import { useAuthContext } from '../hooks/useAuthContext';
 const Login = () => {
 
   const [password , setPassword] = useState("")
   const [email , setEmail] = useState("")
+  const {dispatch} = useAuthContext();
 
   const Login = (e) => {
     e.preventDefault();
@@ -14,9 +15,14 @@ const Login = () => {
        password : password
 
     })
-    .then((res) => {
-      console.log(res);
-      localStorage.setItem('user' , JSON.stringify(res.data))
+    .then(response => {
+      const json = response.data;
+      // console.log("json",json);
+      const user = json.user;
+      // console.log("user", user);
+      // console.log(res);
+      localStorage.setItem('user', JSON.stringify(user));
+      dispatch({ type: 'LOGIN', payload: user });
       setEmail("")
       setPassword("")
     })

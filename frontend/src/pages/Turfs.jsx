@@ -1,13 +1,20 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+// import { useTurfsContext } from '../hooks/useTurfsContext';
+
+
+
 const Turfs = () => {
   
     const [turfs , setTurfs] = useState([]);
+    // const {Turfs , dispatch} = useTurfsContext();
 
+     
     const fetchTurfs = async () => {
-        const Turfs = await axios.get('https://shika-grao-api.onrender.com/api/Turfs')
-        setTurfs(Turfs.data.turfs);
+        const Turfs = await axios.get('http://localhost:4000/api/Turfs')
+        // setTurfs(Turfs.data.turfs);
+        // dispatch({type: 'SET_TURFS' , payload:data})
         console.log(Turfs);
     }
 
@@ -21,7 +28,7 @@ const Turfs = () => {
         <section className=' w-full h-full mb-4   ' >
           <div className=' p-2 max-w-7xl mx-auto lg:flex lg:justify-between flex-wrap' >
              {
-                 turfs.map((fetchedData) => (
+                 Turfs.map((fetchedData) => (
                     
           <div key={fetchedData._id} className=' p-4 bg-secondary rounded mb-4 shadow-md  dark:bg-gray-800 ' >
             <div className='relative w-full h-40 mb-2'>

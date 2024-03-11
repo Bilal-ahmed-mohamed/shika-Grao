@@ -1,51 +1,66 @@
 const db = require("../config/config")
 
-const {DataTypes, STRING} = require("sequelize");
+const {DataTypes} = require("sequelize");
+const users = require("./userModel");
 
 const Turfs = db.define('turfs', {
+    turf_id:{
+        type:DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey : true,
+        autoIncrement : true, 
+    },
+    user_id:{
+        type:DataTypes.INTEGER,
+        allowNull : false,
+        references : {
+            model : 'users',
+            key : 'user_id',
+        } ,
+    },
     title:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     format:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     surface:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     postcode:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     numberOfPitches:{
         type:DataTypes.DOUBLE,
-        allowNull : false
+        allowNull : false,
     },
     venue:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     facilities:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     startTime :{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     closeTime : {
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     matchDuration : {
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     },
     Image:{
         type:DataTypes.STRING,
-        allowNull : false
+        allowNull : false,
     }
     
 
@@ -56,6 +71,9 @@ const Turfs = db.define('turfs', {
     freezeTableName : true,
 
 });
+
+// Turfs.hasMany(users, {foreignKey : 'user_id'});
+Turfs.belongsTo(users, {foreignKey : 'user_id'});
 
 db.sync()
 .then(() => {

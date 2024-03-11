@@ -2,6 +2,12 @@ const db = require("../config/config")
 const {DataTypes} = require("sequelize");
 
 const Users =  db.define('users' , {
+    user_id:{
+        type:DataTypes.INTEGER,
+        allowNull : false,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     username: {
         type:DataTypes.STRING,
         allowNull : false
@@ -23,10 +29,12 @@ const Users =  db.define('users' , {
 } ,
 {
     timestamps : true,
-    //prevent sequelize from pluralizing table names
     freezeTableName : true,
 
 });
+
+
+
 
 db.sync()
 .then(() => {
