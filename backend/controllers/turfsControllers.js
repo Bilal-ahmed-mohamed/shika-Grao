@@ -40,6 +40,7 @@ const createTurfs = async (req,res) => {
   });
 
  let newTurf = {
+    user_id:req.body.user_id,
     title : req.body.title,
     format : req.body.format,
     surface : req.body.surface,
@@ -51,7 +52,7 @@ const createTurfs = async (req,res) => {
     closeTime : req.body.closeTime,
     matchDuration : req.body.matchDuration,
     Image : result.secure_url,
-    user:req.body.user_id
+    
  }
 console.log(newTurf.user);
     if (!newTurf ) {

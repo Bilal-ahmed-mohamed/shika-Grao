@@ -277,43 +277,7 @@ const HostAturf = () => {
         }
       </form>
     </body>
-  //   <div className="flex flex-col items-center justify-center min-h-screen">
-  //   {step === 1 && (
-  //     <div className="w-full max-w-md">
-  //       <label className="block mb-2 font-bold text-gray-700" htmlFor="username">
-  //         Username
-  //       </label>
-  //       <input className="w-full px-3 py-2 mb-5 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
-  //       <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handleNext}>Next</button>
-  //     </div>
-  //   )}
 
-  //   {step === 2 && (
-  //     <div className="w-full max-w-md">
-  //       <label className="block mb-2 font-bold text-gray-700" htmlFor="email">
-  //         Email
-  //       </label>
-  //       <input className="w-full px-3 py-2 mb-5 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" />
-  //       <div className="flex justify-between">
-  //         <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handlePrev}>Back</button>
-  //         <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handleNext}>Next</button>
-  //       </div>
-  //     </div>
-  //   )}
-
-  //   {step === 3 && (
-  //     <div className="w-full max-w-md">
-  //       <label className="block mb-2 font-bold text-gray-700" htmlFor="password">
-  //         Password
-  //       </label>
-  //       <input className="w-full px-3 py-2 mb-5 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password" />
-  //       <div className="flex justify-between">
-  //         <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handlePrev}>Back</button>
-  //         <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" type="submit">Sign up</button>
-  //       </div>
-  //     </div>
-  //   )}
-  // </div>
   )
 }
 

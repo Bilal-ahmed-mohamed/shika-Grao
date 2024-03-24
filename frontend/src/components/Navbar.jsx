@@ -26,11 +26,11 @@ const Navbar = () => {
         <Link to='/Turfs' > Turfs </Link>
         <Link to='/Host' > Host A New Turf </Link>      
       </div>
-      <div className="hidden w-56 bg-slate-700  space-x-3 md:flex justify-around  ">
+      <div className="hidden w-56   space-x-3 md:flex justify-around  ">
 
         {
           user && (
-            <div className=' w-36 bg-red-400 flex justify-between'>
+            <div className=' w-36  flex justify-between'>
               <h3 className='flex justify-center items-center'>{user.username}</h3>
              <button onClick={handleClick}> Logout </button>
             </div>
