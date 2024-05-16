@@ -15,7 +15,7 @@ const Turfs = () => {
         const Turfs = await axios.get('http://localhost:4000/api/Turfs')
         setTurfs(Turfs.data.turfs);
         // dispatch({type: 'SET_TURFS' , payload:data})
-        console.log(Turfs);
+        // console.log(Turfs);
     }
 
     useEffect(() => {
@@ -65,7 +65,7 @@ const Turfs = () => {
             <div class="flex items-center justify-between ">
                     
                     <button href="#" class="px-3 py-2 text-xs text-white bg-button rounded hover:bg-buttonHover">
-                    <Link to={`/IndivualTurf/${fetchedData.id}`}> Book Grao</Link>
+                    <Link to={`/IndivualTurf/${fetchedData.turf_id}`}> Book Grao</Link>
                         </button>
                 </div>
       

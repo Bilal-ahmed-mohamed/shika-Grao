@@ -18,7 +18,7 @@ router.get('/' , getAllTurfs)
 
 // get a single turf 
 
-router.get('/:id' , getAsingleTurf)
+router.get('/:turf_id' , getAsingleTurf)
 
 // posting a new turf 
 

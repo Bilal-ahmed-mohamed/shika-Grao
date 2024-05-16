@@ -86,31 +86,32 @@ console.log(newTurf.user);
 // get a single turf
 const getAsingleTurf = async (req,res) => {
 
-    const {id} = req.params;
-    if (!id) {
+    const { turf_id }  = req.params;
+    if (!turf_id) {
         return res.status({
             success : false,
-            message : "turf not found",
+            message : "turf id  not found",
         })
-    };
+    }
 
     try {
-        const singleTurf = await Turfs.findOne({where : {id}});
+        const singleTurf = await Turfs.findOne({where : { turf_id }});
         if (!singleTurf) {
             return res.status(404).json({
                 success : false,
-                message : "turf was not founf",
-            })
-        };
+                message : "turf was not found",
+            });
+        }
 
         return res.status(200).json({
             success : true,
             singleTurf,
         });
-    } catch (error) {
+    } catch (error) { 
         return res.status(500).json({
             success : false,
-            message : "error for noe",
+            message : " server error",
+            error : error.message,
         });
     }
    
@@ -120,7 +121,7 @@ const getAsingleTurf = async (req,res) => {
 // update a turf
 
 const updateTurf = async (req,res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     const {title ,format , surface , postcode , numberOfPitches} = req.body;
     if (!title  || !format || !surface || !postcode || !numberOfPitches ) {
         return res.status(400).json({

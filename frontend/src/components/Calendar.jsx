@@ -18,7 +18,7 @@ function Calendar() {
 
   
   const singleTurf = async () => {
-    const res = await axios.get(`https://shika-grao-api.onrender.com/api/Turfs/${id}/`) 
+    const res = await axios.get(`http://localhost:4000/api/Turfs/${id}/`) 
     console.log(res);
     setStartTime(res.data.singleTurf.startTime);
     setCloseTime(res.data.singleTurf.closeTime);
