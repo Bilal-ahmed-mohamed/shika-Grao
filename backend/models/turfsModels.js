@@ -72,8 +72,8 @@ const Turfs = db.define('turfs', {
 
 });
 
-// Turfs.hasMany(users, {foreignKey : 'user_id'});
-Turfs.belongsTo(users, {foreignKey : 'user_id'});
+
+Turfs.hasMany(users, {foreignKey : 'user_id'});
 
 db.sync()
 .then(() => {

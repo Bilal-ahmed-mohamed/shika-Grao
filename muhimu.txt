@@ -1,0 +1,1 @@
+i am building a system whereby a user books for a slot in a turf to play football the issue am having is i need it to be that i fetch the slots of times from my database in sql and using node js and express js and display it to the user the slots available and those booked and then when the user books a free slot it updates it and then fetches the slots afresh again. 
