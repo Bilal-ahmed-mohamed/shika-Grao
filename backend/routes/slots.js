@@ -1,11 +1,15 @@
 const express = require("express");
 const {
-    getAllSlots
+    generateSlots,
+    fetchAllSlots
 } = require("../controllers/slotsController")
 
 const router = express.Router();
 
 // getallslots
-router.get('/' , getAllSlots);
+router.get('/' , fetchAllSlots )
+
+// posting a new slot
+router.post('/' , generateSlots)
 
 module.exports = router;

@@ -11,19 +11,44 @@ const Slots =  db.define('slots', {
         primaryKey : true,
         autoIncrement : true,
     },
-    status:{
-        type: DataTypes.STRING,
-        allowNull: false, 
-        defaultValue : "Available"
-    },
     turf_id : {
      type :DataTypes.INTEGER,
      allowNull : false,
-     refrences : {
+     references : {
         model : 'turfs',
         key : 'turf_id',
      }
+    },
+    day_of_the_week :{
+        type : DataTypes.INTEGER,
+        allowNull : false
+    },
+    start_time: {
+        type: DataTypes.TIME,
+        allowNull: false,
+    },
+    end_time: {
+        type: DataTypes.TIME,
+        allowNull: false,
+    },
+    is_booked: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+    },
+    booked_by: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'users',
+            key: 'user_id',
+        },
+    },
+    price: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
     }
+
 },
     {
         timestamps : true,
@@ -35,8 +60,6 @@ const Slots =  db.define('slots', {
 
 Slots.belongsTo(Turfs, {foreignKey: 'turf_id'});    
 
-    // Slots.belongsTo(Turfs, { foreignKey: 'turf_id' });
-    // Slots.belongsTo(Turfs, {as: 'Turfs', foreignKey: 'turf_id'});
 
 db.sync()
 .then(() => {

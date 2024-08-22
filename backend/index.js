@@ -3,7 +3,7 @@ const express = require("express");
 const database = require("./config/config");
 const turfRoutes = require("./routes/turfs");
 const usersRoutes =  require("./routes/users");
-const slotsRoutes = require("./routes/slots");
+const slotRoutes = require("./routes/slots");
 const cors = require("cors");
 
 const app = express();
@@ -18,11 +18,11 @@ app.use(cors());
 // routes 
 app.use('/api/Turfs' , turfRoutes)
 app.use('/api/users' , usersRoutes)
-app.use('/api/slots' , slotsRoutes)
+app.use('/api/slots' , slotRoutes)
 
 try {
     database.authenticate();
-    console.log("you are connected to the databse");
+    console.log("you are connected to the database");
 } catch (error) {
     console.log("connection Error :", error);
 }
