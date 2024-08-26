@@ -9,6 +9,12 @@ const Turfs = require("../models/turfsModels");
 const fetchAllSlots = async (req, res) => {
 
     const {turf_id} = req.params;
+    if (!turf_id) {
+        return res.status({
+            success : false,
+            message : "turf id  not found",
+        })
+    }
 
     try {
         const slots = await Slots.findAll({
@@ -45,52 +51,63 @@ const fetchAllSlots = async (req, res) => {
 
 const generateSlots = async (turf_id) => {
     const turf = await Turfs.findByPk(turf_id);
-
+    
     if (!turf) {
-        throw new Error("turf not found");
+        throw new Error("Turf not found");
     }
-
-    const {startTime , closeTime , matchDuration} = turf;
-   
-    const start = new Date(`1970-01-01T${startTime}:00Z`);
-    const end = new Date(`1970-01-01T${closeTime}:00Z`);
+    console.log(`Turf found: ${JSON.stringify(turf)}`);
+    
+    const { startTime, closeTime, matchDuration } = turf;
+    
+    console.log(`Start time: ${startTime}, Close time: ${closeTime}, Match duration: ${matchDuration}`);
+    
+    const start = new Date(`1970-01-01T${startTime}`);
+    const end = new Date(`1970-01-01T${closeTime}`);
     const duration = parseInt(matchDuration);
-
-    let currentTime = start;
-
+    
+    let currentTime = new Date(start);
+    
     while (currentTime < end) {
-
-        const slotsStartTime = currentTime.toTimeString().split('')[0];
+        const slotStartTime = currentTime.toTimeString().slice(0, 5); // HH:MM format
         const nextTime = new Date(currentTime.getTime() + duration * 60000);
-        const slotEndTime = nextTime.toTimeString().split('')[0];
-
-       if(nextTime > end) break;
-
-    // determine the price of the slot of the turf for a specific time
-     let price;
-     const hours = currentTime.getUTCHours();
-
-     if (hours >= 6 && hours < 12) {
-        price = 1500;
-     } else if(hours >= 12 && hours < 18){
-        price = 2000;
-     }
-     else {
-        price = 2500;
-     }
-
-
-       await Slots.create({
-             turfId: turf_id,
-            day_of_the_week: new Date().getDay(),
-            start_time: slotsStartTime,
-            end_time: slotEndTime,
-            price : price,
-       });
-
-       currentTime = nextTime;
+        const slotEndTime = nextTime.toTimeString().slice(0, 5); // HH:MM format
         
+        if (nextTime > end) break;
+
+        // Determine the price of the slot based on the time
+        let price;
+        const hours = currentTime.getHours();
+        
+        if (hours >= 6 && hours < 12) {
+            price = 1500;
+        } else if (hours >= 12 && hours < 18) {
+            price = 2000;
+        } else {
+            price = 2500;
+        }
+
+        console.log(`Creating slot: Start: ${slotStartTime}, End: ${slotEndTime}, Price: ${price}`);
+        
+        // Create slots for each day of the week
+        try {
+            for (let i = 0; i < 7; i++) {
+                await Slots.create({
+                    turf_id: turf_id,
+                    day_of_week: i,
+                    start_time: slotStartTime,
+                    end_time: slotEndTime,
+                    price: price,
+                });
+                console.log(`Slot created successfully for day ${i}`);
+            }
+        } catch (error) {
+            console.error(`Error creating slot: ${error.message}`);
+        }
+        
+        currentTime = nextTime;
     }
+    
+    console.log("Finished generating slots");
 }
 
 module.exports = {
