@@ -22,7 +22,7 @@ import IndivualTurf from './pages/IndivualTurf'
 
 function App() {
   return(
-    <div className='w-full bg-primary' >
+    <div className='w-full' >
       <BrowserRouter>
       <Navbar/>
       <Routes>
