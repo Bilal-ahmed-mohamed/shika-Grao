@@ -4,38 +4,35 @@ import { FaInstagram, FaTwitter , FaTiktok } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
 const Footer = () => {
   return (
-    <footer className=' h-36 lg:h-28 w-full ' >
-       <div className=' w-full  lg:max-w-7xl h-full mx-auto lg:flex bg-secondary ' >
-        <div className=' w-full h-1/2  lg:w-1/2 lg:h-full flex flex-col justify-center items-center space-x-7' > 
-        <div className='space-x-6 ' >
-           <Link> Home </Link> 
-           <Link> Turf </Link>
-           <Link> Log In </Link>
-           <Link> Sign Up </Link>
-           <Link> Host A Facility </Link>
-           </div>
+       <footer class="flex flex-col bg-neutral-300 space-y-10 justify-center py-7">
 
-           <div className='' >
-            <h2>&copy; 2023</h2>
-            </div>  
-           
-        </div>
-        <div className=' w-full h-1/2 lg:w-1/2 lg:h-full flex justify-center items-center' >
-          <div className=' w-1/2  h-1/2' >
-         <h4>Subscribe to our newsletter</h4>
-         <input type="text" placeholder='Email' name="" id="" />
-         </div>
-           
-           <div className=' w-1/2 h-1/2 flex justify-center items-center space-x-7  ' >
-           <p><MdFacebook  size="2em" /></p>
-           <p><FaInstagram size="2em" /></p>
-           <p><FaTwitter size="2em" /></p>
-           <p><FaTiktok  size="2em" /></p>
-           </div>
-           
-        </div>
-       </div>
-    </footer>
+    <nav class="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+        <a class="hover:text-gray-900" href="#">Home</a>
+        <a class="hover:text-gray-900" href="#">Turf</a>
+        <a class="hover:text-gray-900" href="#">Log In</a>
+        <a class="hover:text-gray-900" href="#">Sign Up</a>
+        <a class="hover:text-gray-900" href="#"> Host A Facility</a>
+    </nav>
+
+    <div class="flex justify-center space-x-5">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/linkedin-2.png" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" />
+        </a>
+        <a href="https://messenger.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/facebook-messenger--v2.png" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/twitter.png" />
+        </a>
+    </div>
+    <p class="text-center text-gray-700 font-medium">&copy; 2024. All rights reservered.</p>
+</footer>
   )
 }
 
