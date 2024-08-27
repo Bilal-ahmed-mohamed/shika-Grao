@@ -15,8 +15,8 @@ const Navbar = () => {
 
 
   return (
-    <nav className='w-full bg-primary py-2' >
-      <span className='navBar bg-secondary mx-auto py-2  max-w-7xl flex justify-evenly' >
+    <nav className='w-full  py-5' >
+      <span className='navBar mx-auto py-2  max-w-7xl flex justify-evenly' >
       <div className="logo w-40 float-left flex items-center ">
         <h1 className='' >shikaGrao   </h1>
         <span > <BiFootball size='2em' color='green' /> </span>
@@ -39,7 +39,7 @@ const Navbar = () => {
 
         {
           !user && (
-            <div className=' w-32 bg-red-400 flex justify-between'>
+            <div className=' w-32 flex justify-between'>
                 <button> <Link to='/Login' className='' >Login</Link> </button>
                 <button> <Link to='/Signup'>Signup </Link> </button>
             </div>
@@ -53,6 +53,8 @@ const Navbar = () => {
       <div class="w-8 h-0.5 bg-blue-600"></div>
       </div>
       </span>
+
+
     </nav>
   )
 }

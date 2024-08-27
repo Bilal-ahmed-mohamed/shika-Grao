@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom';
-import image3 from '../images/hero2.jpg';
+import image3 from '../images/close-up-athlete-playing-soccer_23-2150845600.avif';
 import { FcSearch , FcCalendar} from "react-icons/fc";
 import { MdOutlinePayment, MdFacebook } from "react-icons/md";
 import { GiBabyfootPlayers } from "react-icons/gi";
@@ -25,23 +25,33 @@ const Home = () => {
     <body className='' >
       
     
-    <section className='w-full  h-96' >
-     <div className=' mx-auto relative  max-w-7xl h-full' >
-      <img className=' h-56 w-full  object-cover lg:w-full lg:h-full  ' src={image3} alt="" />
-      <div className='flex flex-col justify-around items-center absolute   h-64 w-full  lg:absolute lg:w-4/5 lg:h-20 lg:top-32 lg:left-32 bg-grey  lg:flex lg:flex-row lg:items-center lg:space-x-9 lg:rounded-md' >
-         <input className=' w-11/12 h-10  lg:h-10 lg:w-48' type="search" placeholder='Search By Stadium Name' name="" id="" />
-         <select className=' w-11/12 h-10 lg:h-10 lg:w-48' placeholder='Type' name="" id="">
-          <option value="">All Sports</option>
-          <option value="">Football</option>
-          <option value="">Basketball</option>
-          <option value="">Cricket</option>
-          <option value="">Futsal</option>
-         </select>
-         <input className=' w-11/12 h-10 lg:h-10 lg:w-48'  placeholder='Enter Area Location' type="text" />
-         <button className=' w-3/4 h-10 bg-lightGreen lg:w-20 lg:h-10 rounded-md ' >Find Turf</button>
-      </div>
-     </div>
-    </section>
+      <section>
+ 
+
+    <div class="relative py-12 bg-gray-900 sm:py-16 lg:py-20 xl:pt-32 xl:pb-44">
+        <div class="absolute inset-0 block">
+            <img class="object-cover object-right-bottom w-full h-full"  src={image3} alt="" />
+        </div>
+
+        <div class="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+            <div class="max-w-xl mx-auto text-center lg:max-w-md xl:max-w-lg lg:text-left lg:mx-0">
+                <h1 class="text-3xl font-bold text-white sm:text-4xl xl:text-5xl xl:leading-tight">Build SaaS Landing Page without Writing a Single Code</h1>
+                <p class="mt-8 text-base font-normal leading-7 text-gray-400 lg:max-w-md xl:pr-0 lg:pr-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nunc nisl eu consectetur. Mi massa elementum odio eu viverra amet.</p>
+
+                <div class="flex items-center justify-center mt-8 space-x-5 xl:mt-16 lg:justify-start">
+                    <a href="/Turfs" title="" class="  inline-flex  items-center justify-center px-3 py-1.5 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white border border-transparent rounded-md sm:px-6  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white  hover:bg-blue-300" role="button">
+                         View
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {/* <div class="mt-8 lg:hidden">
+            <img class="object-cover w-full h-full"  src={image3} alt="" />
+        </div> */}
+    </div>
+</section>
+
 
     <section className='w-full h-fit' >
       <h1 className=' text-center text-5xl py-5 ' >Find Your Turfs</h1>
@@ -70,47 +80,55 @@ const Home = () => {
      <button className='w-32 h-12 block mx-auto bg-button'> <Link to="/Turfs" > View More </Link> </button>
     </section>
 
-    <section className='h-full  mb-4 ' >
-      <h2 className=' text-center text-3xl py-5  lg:text-5xl ' >Book Your Game within Minutes</h2>
-      <span className=' bg-light mx-auto space-y-5 lg:max-w-7xl lg:flex justify-between lg:space-y-0 py-5 rounded-lg ' > 
-        <div className='w-11/12 h-40 mx-auto lg:w-60 lg:h-60 flex lg:flex-col lg:justify-center items-center   px-6 lg:space-y-3 flex-row rounded-md ' >
-        <div className=' bg-grey  w-36  h-24 flex justify-center items-center rounded-lg ' >
-        <FcSearch size='4em' />
+ 
+  
+    
+
+      <section class="text-black   my-5">
+      <h2 className=' text-center font-bold text-3xl py-5' >Book Your Game within Minutes</h2>
+  <div class="container px-5 py-24 mx-auto">
+ 
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class=" px-4 py-6 rounded-lg shadow-2xl">
+            <div  class="text-indigo-500 w-12 h-12 mb-3 inline-block">
+              <FcSearch size='4em' />
+            </div>
+          <h2 class="title-font font-medium text-3xl text-gray-900">Find</h2>
+          <p class="leading-relaxed">A nearby Stadium</p>
         </div>
-        <div className=' w-48 h-24  flex flex-col justify-center items-center    ' >
-          <h1 className=' text-2xl  font-bold ' >Find</h1>
-          <p className=' font-normal' >A nearby Stadium</p>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class=" px-4 py-6 rounded-lg shadow-2xl">
+           <div  class="text-indigo-500 w-12 h-12 mb-3 inline-block">
+             <FcCalendar size="4em" />
+            </div>
+          <h2 class="title-font font-medium text-3xl text-gray-900">Choose</h2>
+          <p class="leading-relaxed">what works for you</p>
         </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class=" px-4 py-6 rounded-lg shadow-2xl">
+        <div  class="text-indigo-500 w-12 h-12 mb-3 inline-block">
+             <MdOutlinePayment size="4em" />
+            </div>
+          <h2 class="title-font font-medium text-3xl text-gray-900">Pay</h2>
+          <p class="leading-relaxed">Online using Mpesa</p>
         </div>
-        <div className='w-11/12 h-40 mx-auto lg:w-60 lg:h-60 flex lg:flex-col lg:justify-center px-6 items-center lg:space-y-3 rounded-md ' >
-          <div className='bg-grey  w-36  h-24 flex justify-center items-center rounded-lg' >
-            <FcCalendar size="4em" />
-          </div>
-          <div className='w-48 h-24  flex flex-col justify-center items-center' >
-            <h1 className=' text-2xl font-bold ' >Choose</h1>
-            <p className='font-normal text-center' >The date,time,duration and pitch size</p>
-          </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class=" px-4 py-6 rounded-lg shadow-2xl">
+            <div  class="text-indigo-500 w-12 h-12 mb-3 inline-block">
+             <GiBabyfootPlayers size="4em"  />
+            </div>
+          <h2 class="title-font font-medium text-3xl text-gray-900">Play</h2>
+          <p class="leading-relaxed">Come show your skills</p>
         </div>
-        <div className='w-11/12 h-40 mx-auto  lg:w-60 lg:h-60 flex lg:flex-col lg:justify-center px-6 items-center lg:space-y-3 rounded-md ' >
-          <div className='bg-grey  w-36  h-24 flex justify-center items-center rounded-lg' >
-            <MdOutlinePayment size="4em" color='green' />
-         </div>
-         <div className='w-48 h-24  flex flex-col justify-center items-center' >
-          <h1 className='text-2xl font-bold' >Pay</h1>
-          <p className='font-normal text-center' >Online using Mpesa</p>
-         </div>
-        </div>
-        <div className='w-11/12 h-40 mx-auto lg:w-60 lg:h-60 flex lg:flex-col lg:justify-center px-6 items-center lg:space-y-3 rounded-md' >
-          <div className='bg-grey  w-36  h-24 flex justify-center items-center rounded-lg' >
-            <GiBabyfootPlayers size="4em" color='green' />
-          </div>
-          <div className=' w-48 h-24  flex flex-col justify-center items-center' >
-            <h1 className='text-2xl font-bold' >Play</h1>
-            <p className='font-normal text-center ' >Come show your skills</p>
-          </div>
-        </div>
-      </span>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     
 
