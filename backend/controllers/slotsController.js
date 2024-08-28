@@ -48,7 +48,6 @@ const fetchAllSlots = async (req, res) => {
 
 
 // controller to create  timeslots
-
 const generateSlots = async (turf_id) => {
     const turf = await Turfs.findByPk(turf_id);
     
@@ -60,10 +59,29 @@ const generateSlots = async (turf_id) => {
     const { startTime, closeTime, matchDuration } = turf;
     
     console.log(`Start time: ${startTime}, Close time: ${closeTime}, Match duration: ${matchDuration}`);
+
+    // convert he hours into minutes
+    let duration = 0;
+    const matchDurationLowerCase = matchDuration.toLowerCase();
+    
+    // extract the hours
+    const hoursMatch = matchDurationLowerCase.match(/(\d+)\s*hour/);
+    if (hoursMatch) {
+        const hours = parseInt(hoursMatch[1]);
+        duration += hours * 60;
+    }
+
+    // extract if minutes are there 
+    const minutesMatch = matchDurationLowerCase.match(/(\d+)\s*minute/);
+    if (minutesMatch) {
+        const minutes = parseInt(minutesMatch[1]);
+        duration += minutes;
+    }
+
     
     const start = new Date(`1970-01-01T${startTime}`);
     const end = new Date(`1970-01-01T${closeTime}`);
-    const duration = parseInt(matchDuration);
+    // const duration = parseInt(matchDuration);
     
     let currentTime = new Date(start);
     
