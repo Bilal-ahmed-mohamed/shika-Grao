@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom';
 import image3 from '../images/close-up-athlete-playing-soccer_23-2150845600.avif';
+import city1 from '../images/city1.jpg';
+import city2 from '../images/city2.jpg';
+import city3 from '../images/city3.jpg';
 import { FcSearch , FcCalendar} from "react-icons/fc";
 import { MdOutlinePayment, MdFacebook } from "react-icons/md";
 import { GiBabyfootPlayers } from "react-icons/gi";
@@ -53,33 +56,92 @@ const Home = () => {
 </section>
 
 
-    <section className='w-full h-fit' >
-      <h1 className=' text-center text-5xl py-5 ' >Find Your Turfs</h1>
-     <div className='  space-y-4  lg:max-w-7xl lg:mx-auto lg:h-auto py-5 lg:space-y-0 lg:flex lg:row-auto lg:items-center lg:justify-between mb-7' >
 
-      {
-        turf.map((fetchedData) => (
+   <div class="max-w-screen-xl mx-auto p-5 mb-10 sm:p-10 md:p-16">
 
-          <div key={fetchedData._id} className=' w-3/4 mx-auto border bg-secondary space-y-3 lg:w-72  h-full lg:mx-0 rounded-lg ' >
-           <img className=' h-40 w-full lg:w-72 lg:h-36' src={fetchedData.Image} alt="" />
-           <h1 className=' text-3xl text-center  font-bold ' >{fetchedData.title}</h1>
-           <p className='ml-5' > Format : {fetchedData.format}</p>
-           <p className=' ml-5' > Surface : {fetchedData.surface}</p>
-           <p className='ml-5' > Area : {fetchedData.postcode}</p>
-           <p className='ml-5' > Pitches : {fetchedData.numberOfPitches}</p>
-           <button className=' bg-button w-28 h-8 block mx-auto  ' > Book Grao </button>
-          </div>
-        ))
-      }
+    <h2 className='text-center font-bold text-3xl'>Find Your Play</h2>
+    <p  className='text-center text-xl pt-4'> Find sports facilities from football pitches to tennis courts in a range of cities across the UK and Ireland</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+    <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-10 max-w-sm mt-24">
+      <img src={city1} alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/5"></div>
+      <h3 class="z-10 mt-3 text-3xl text-end font-bold text-white">Paris</h3>
+    <div class="z-10 gap-y-1 text-end overflow-hidden text-sm leading-6 text-gray-300">City of love</div>
+    </div>
 
       
-     
-     
-     
+    <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mt-24">
+       <img src={city2} alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/5"></div>
+        <h3 class="z-10 mt-3 text-3xl text-end font-bold text-white">Paris</h3>
+        <div class="z-10 gap-y-1 text-end overflow-hidden text-sm leading-6 text-gray-300">City of love</div>
      </div>
-     <button className='w-32 h-12 block mx-auto bg-button'> <Link to="/Turfs" > View More </Link> </button>
-    </section>
+     
+      
+     
+     <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm mt-24">
+       <img src={city3} alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/5"></div>
+        <h3 class="z-10 mt-3 text-3xl text-end font-bold text-white">Paris</h3>
+        <div class="z-10 gap-y-1 text-end overflow-hidden text-sm leading-6 text-gray-300">City of love</div>
+     </div>
+    </div>
+  </div>
 
+  
+    <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+
+      <div class="border-b mb-5 flex justify-between text-sm">
+          <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
+              <p class="font-semibold inline-block">Grao</p>
+          </div>
+          <Link to="/Turfs" >See All</Link>
+      </div>
+
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {turf.map((fetchedData) => (
+          <div key={fetchedData._id} class="rounded overflow-hidden shadow-lg flex flex-col">
+                <div class="relative h-56">
+                  <img class="w-full h-full" src={fetchedData.Image}  alt="Sunset in the mountains"/>
+                  <div class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"> </div>  
+                </div>
+                <div class="px-6 py-4 mb-auto">
+                  <h1 className='font-bold text-lg'>{fetchedData.title}</h1>
+                </div>
+                <div class="px-6 flex flex-col lg:flex-row md:items-center justify-between">
+                  <div>
+                  <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                        <p class="ml-1"> <span className='text-md md:text-lg'>Format:</span> <span className='font-bold'>{fetchedData.format}</span></p>
+                    </span>
+
+                    <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                        <p class="ml-1"><span className='text-md md:text-lg '>Surface: </span> <span className='font-bold'>{fetchedData.surface}</span></p>
+                    </span>
+                  </div>
+
+                  <div>
+                  <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                        <p class="ml-1"><span className='text-md md:text-lg '>Area:</span><span className='font-bold'> {fetchedData.postcode}</span></p>
+                    </span>
+
+                    <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                        <p class="ml-1"><span className='text-md md:text-lg '>Pitches:</span> <span className='font-bold'> {fetchedData.numberOfPitches}</span></p>
+                    </span>
+                  </div>
+                </div>
+               <div className='py-3'>
+                   <a href="#" class="inline-block pl-3 pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent">
+                    Book Now
+                    </a>
+               </div>
+          </div>
+        ))}
+        
+        </div>
+
+</div>
  
   
     

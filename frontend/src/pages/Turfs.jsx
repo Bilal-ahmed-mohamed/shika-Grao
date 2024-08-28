@@ -25,57 +25,34 @@ const Turfs = () => {
   return (
     <body className='' >
 
-        <section className=' w-full h-full mb-4   ' >
-          <div className=' p-2 max-w-7xl mx-auto lg:flex lg:justify-between flex-wrap' >
-             {
-                 turfs.map((fetchedData) => (
-                    
-          <div key={fetchedData._id} className=' p-4 bg-secondary  rounded mb-4  shadow-md  dark:bg-gray-800 ' >
-            <div className='relative w-full  h-40 mb-2'>
-            <img className=' h-40 w-full lg:w-72 lg:h-40' src={fetchedData.Image} alt="" />
+<section className=' w-full h-full mb-4   ' >      
+<ul class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-y-12 gap-x-8 p-8">
+  {turfs.map((fetchedData) => (
+    <li class="relative flex flex-col md:flex-row  rounded-lg shadow-lg p-6 w-full">
+      <img src={fetchedData.Image} alt="" class="mb-4 sm:mb-0 sm:mr-6 xl:mb-4 xl:mr-0 rounded-lg object-cover w-full md:w-[15rem] xl:w-[25rem]" />
+      <div class="flex flex-col justify-between flex-1 mx-10">
+        <div>
+          <h3 class="text-indigo-600 font-bold text-lg mb-2">{fetchedData.title}</h3>
+          <div className='flex flex-row text-left gap-6 mt-4'>
+            <div>
+              <p class="text-gray-700"><span className='font-semibold'>Format:</span> {fetchedData.format}</p>
+              <p class="text-gray-700"><span className='font-semibold'>Surface:</span> {fetchedData.surface}</p>
             </div>
-            <div className='flex items-center justify-between mb-4'>
-            <h1 className=' text-3xl text-center  font-bold ' >{fetchedData.title}</h1>
+            <div>
+              <p class="text-gray-700"><span className='font-semibold'>Area:</span> {fetchedData.postcode}</p>
+              <p class="text-gray-700"><span className='font-semibold'>Pitches:</span> {fetchedData.numberOfPitches}</p>
             </div>
-            <div className='flex items-center justify-between mb-2'>
-            <h2 class=" font-medium dark:text-gray-400"> Format</h2>
-                    <span
-                        class="inline-block px-2 py-1  text-blue-500 rounded-full dark:bg-gray-700 dark:text-blue-400 bg-blue-50">
-                         {fetchedData.format}
-                    </span>
-            </div>
-            <div className='flex items-center justify-between mb-2'>
-            <h2 class=" font-medium dark:text-gray-400">Surface</h2>
-                    <span class="inline-block px-2 py-1  text-gray-600 dark:text-gray-400">
-                    {fetchedData.surface}
-                    </span>
-            </div>
-            <div className='flex items-center justify-between mb-2'>
-            <h2 class=" font-medium dark:text-gray-400">Area</h2>
-                    <span class="inline-block px-2 py-1  text-gray-600 dark:text-gray-400">
-                    {fetchedData.postcode}
-                    </span>
-            </div>
-            <div  className='flex items-center justify-between mb-2'>
-            <h2 class=" font-medium dark:text-gray-400">Pitches</h2>
-                    <span class="inline-block px-2 py-1  text-gray-600 dark:text-gray-400">
-                    {fetchedData.numberOfPitches}
-                    </span>
-            </div>
-            <div class="flex items-center justify-between ">
-                    
-                    <button href="#" class="px-3 py-2 text-xs text-white bg-button rounded hover:bg-buttonHover">
-                    <Link to={`/IndivualTurf/${fetchedData.turf_id}`}> Book Grao</Link>
-                        </button>
-                </div>
-      
-                
           </div>
-                 ))
-             }
-          </div>
-        </section>
+        </div>
+        <a href="" class="mt-6 inline-flex items-center justify-center h-10 rounded-full text-sm font-semibold bg-blue-600 text-white px-5 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Book Now
+        </a>
+      </div>
+    </li>
+  ))}
+</ul>
 
+</section>
     </body>
   )
 }
