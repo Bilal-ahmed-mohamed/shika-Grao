@@ -91,7 +91,7 @@ const getAsingleTurf = async (req,res) => {
         return res.status({
             success : false,
             message : "turf id  not found",
-        })
+        }) 
     }
 
     try {

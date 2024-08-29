@@ -31,9 +31,10 @@ const fetchAllSlots = async (req, res) => {
             day_of_the_week: slot.day_of_the_week,
             start_time: slot.start_time,
             end_time: slot.end_time,
-            is_booked: slot.is_booked,
-            price: slot.price,
             status: slot.is_booked ? 'Booked' : 'Available',
+            booked_by : "bilal",
+            price: slot.price,
+           
         }));
 
         res.status(200).json(response);
@@ -110,10 +111,13 @@ const generateSlots = async (turf_id) => {
         try {
             for (let i = 0; i < 7; i++) {
                 await Slots.create({
+                    slot_id : slot_id,
                     turf_id: turf_id,
-                    day_of_week: i,
+                    day_of_the_week: i,
                     start_time: slotStartTime,
                     end_time: slotEndTime,
+                    is_booked: is_booked,
+                    booked_by : booked_by,
                     price: price,
                 });
                 console.log(`Slot created successfully for day ${i}`);
@@ -127,6 +131,9 @@ const generateSlots = async (turf_id) => {
     
     console.log("Finished generating slots");
 }
+
+// fetch slots for a specific turf
+
 
 module.exports = {
     generateSlots,

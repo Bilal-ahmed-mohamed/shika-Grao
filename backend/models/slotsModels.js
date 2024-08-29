@@ -31,7 +31,7 @@ const Slots =  db.define('slots', {
         type: DataTypes.TIME,
         allowNull: false,
     },
-    is_booked: {
+    status: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
