@@ -36,14 +36,6 @@ const Slots =  db.define('slots', {
         allowNull: false,
         defaultValue: false,
     },
-    booked_by: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'users',
-            key: 'user_id',
-        },
-    },
     price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,

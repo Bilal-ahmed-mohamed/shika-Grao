@@ -19,8 +19,8 @@ const Login = () => {
       const json = response.data;
       // console.log("json",json);
       const user = json.user;
-      // console.log("user", user);
-      // console.log(res);
+      console.log("user", user);
+      console.log(response);
       localStorage.setItem('user', JSON.stringify(user));
       dispatch({ type: 'LOGIN', payload: user });
       setEmail("")

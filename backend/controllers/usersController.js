@@ -15,7 +15,7 @@ const loginUser = async (req,res) => {
 
     if (!email || !password) {
         return res.status(405).json({
-            succes : false,
+            success : false,
             message : "please fill all the fields"
         })
     }
@@ -27,7 +27,7 @@ const loginUser = async (req,res) => {
     }
     if (!validator.isStrongPassword(password)) {
         return res.status(407).json({
-            succes : false,
+            success : false,
             message: "password is not long enough"
         })
     }
@@ -47,11 +47,11 @@ const loginUser = async (req,res) => {
                     message : "the pasword given dosent match the passowrd"
                 })
             }else{
-                const token = createToken(user.id)
+                const token = createToken(user)
                 res.status(200).json({
-                    succes : true,
+                    success : true,
                     message : "you have logged in",
-                   user , email , token
+                   user : token,
                 })
             }
         })
@@ -101,11 +101,11 @@ const signupUser = async (req,res) => {
         const hash = await bcrypt.hash(password,salt)
         const user = await Users.create({username,email,password:hash,accountType})
         // create token
-        const token = createToken(user.id)
+        const token = createToken(user)
         res.status(200).json({
             success:true,
             message: "You Have Signed Up",
-            user,email,token
+            user : token,
         })
     } catch (error) {
         res.json({message : error.message})

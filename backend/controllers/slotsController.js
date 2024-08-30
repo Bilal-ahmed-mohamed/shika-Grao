@@ -49,7 +49,7 @@ const fetchAllSlots = async (req, res) => {
 
 
 // controller to create  timeslots
-const generateSlots = async (turf_id) => {
+const generateSlots = async (turf_id , req) => {
     const turf = await Turfs.findByPk(turf_id);
     
     if (!turf) {
@@ -111,13 +111,12 @@ const generateSlots = async (turf_id) => {
         try {
             for (let i = 0; i < 7; i++) {
                 await Slots.create({
-                    slot_id : slot_id,
+                    // slot_id : slot_id,
                     turf_id: turf_id,
                     day_of_the_week: i,
                     start_time: slotStartTime,
                     end_time: slotEndTime,
-                    is_booked: is_booked,
-                    booked_by : booked_by,
+                    is_booked: false,
                     price: price,
                 });
                 console.log(`Slot created successfully for day ${i}`);
@@ -134,6 +133,9 @@ const generateSlots = async (turf_id) => {
 
 // fetch slots for a specific turf
 
+const fetchSlotsForATurf = async (req,res) => {
+    
+}
 
 module.exports = {
     generateSlots,
