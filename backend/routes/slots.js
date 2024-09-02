@@ -1,7 +1,8 @@
 const express = require("express");
 const {
     generateSlots,
-    fetchAllSlots
+    fetchAllSlots,
+    fetchSlotsForATurf
 } = require("../controllers/slotsController")
 
 const router = express.Router();
@@ -22,6 +23,8 @@ router.post('/generate-slots/:turfId', async (req, res) => {
         res.status(500).json({ error: 'An error occurred while generating slots' });
     }
 });
+
+
 
 
 module.exports = router;

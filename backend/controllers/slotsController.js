@@ -1,7 +1,8 @@
 
 const Slots = require("../models/slotsModels");
 const Turfs = require("../models/turfsModels");
-
+const {Op, where} = require('sequelize');
+const moment = require('moment');
 
 
 // controller to fetch all the slots
@@ -133,13 +134,72 @@ const generateSlots = async (turf_id , req) => {
 
 // fetch slots for a specific turf
 
-const fetchSlotsForATurf = async (req,res) => {
+const fetchSlotsForATurf = async (turf_id , date) => {
+
+    try {
+        const targetDate = moment(date);
+
+        const startOfTheWeek = targetDate.clone().startOf('week').toDate();
+        const endOfWeek = targetDate.clone().endOf('week').toDate();
+
+        // fetch the slots for the specific week
+        const slots = await Slots.findAll({
+            where:{
+                turf_id : turf_id,
+                [Op.or] : [
+                    {
+                        day_of_the_week : {
+                            [Op.between] : [0 , 6]
+                        }
+                    }
+                ]
+            },
+            order : [
+                ['day_of_the_week' , 'ASC'],
+                ['start_time' , 'ASC']
+            ]
+        });
+
+
+        // group the slots by day of the week
+        const groupedSlots =  slots.reduce((acc , slot) => {
+            if (!acc(slot.day_of_the_week)) {
+                acc[slot.day_of_the_week] = [];
+            }
+            acc[slot.day_of_the_week].push(slot);
+            return acc;
+        }, {});
+
+
+
+        // create an array of dates for the week
+        const weekDates = [];
+        for(let i = 0; i < 7; i++){
+            weekDates.push(moment(startOfTheWeek).add(i, 'days').format('YYYY-MM-DD'));
+        }
+
+
+        // combine dates with slots
+        const result = weekDates.map((date , index) => ({
+            date,
+            day_of_week : index,
+            slots : groupedSlots[index] || []
+        }));
+
+        return result;
+  
+     
+    } catch (error) {
+        console.error('Error fetching weekly slots:', error);
+        throw error;
+    }
     
 }
 
 module.exports = {
     generateSlots,
-    fetchAllSlots
+    fetchAllSlots,
+    fetchSlotsForATurf
 }
 
 
