@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom';
 import {BiFootball} from 'react-icons/bi';
 import { useAuthContext } from '../hooks/useAuthContext';
@@ -6,11 +6,15 @@ import {Logout} from '../hooks/Logout';
 
 const Navbar = () => {
 
-
+  const [menuStatus , setMenuStatus] = useState(true); 
   const {user} = useAuthContext();
   const useLogout = Logout();
   const handleClick = () => {
     useLogout();
+  }
+
+  const toggleMenuStatus = () => {
+    
   }
 
 

@@ -47,11 +47,17 @@ const loginUser = async (req,res) => {
                     message : "the pasword given dosent match the passowrd"
                 })
             }else{
-                const token = createToken(user)
+                const token = createToken(user.id)
                 res.status(200).json({
                     success : true,
                     message : "you have logged in",
-                   user : token,
+                    token,
+                    user : {
+                        id : user.id,
+                        username : user.username,
+                        email : user.email,
+                        accountType : user.accountType
+                    }
                 })
             }
         })
@@ -105,7 +111,13 @@ const signupUser = async (req,res) => {
         res.status(200).json({
             success:true,
             message: "You Have Signed Up",
-            user : token,
+            token,
+            user:{
+                id : user.id,
+                username : user.username,
+                email : user.email,
+                accountType : user.accountType
+            }
         })
     } catch (error) {
         res.json({message : error.message})

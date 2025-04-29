@@ -2,7 +2,8 @@ const express = require("express");
 const {
     generateSlots,
     fetchAllSlots,
-    fetchSlotsForATurf
+    fetchSlotsForATurf,
+    generateSlotsForDay
 } = require("../controllers/slotsController")
 
 const router = express.Router();

@@ -16,13 +16,16 @@ const Login = () => {
 
     })
     .then(response => {
-      const json = response.data;
+      const {user, token} = response.data;
+      const userData = {...user, token};
+
+      // const json = response.data;
       // console.log("json",json);
-      const user = json.user;
-      console.log("user", user);
-      console.log(response);
-      localStorage.setItem('user', JSON.stringify(user));
-      dispatch({ type: 'LOGIN', payload: user });
+      // // const user = json.user;
+      // console.log("user", user);
+      // console.log(response);
+      localStorage.setItem('user', JSON.stringify(userData));
+      dispatch({ type: 'LOGIN', payload: userData });
       setEmail("")
       setPassword("")
     })
